@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 226276376}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: -0.17, z: 0.038735}
+  m_LocalPosition: {x: 0.05, y: -0.17, z: -0.58}
   m_LocalScale: {x: 0.64645, y: 0.64645, z: 0.64645}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -199,7 +199,6 @@ GameObject:
   m_Component:
   - component: {fileID: 722272496}
   - component: {fileID: 722272495}
-  - component: {fileID: 722272497}
   m_Layer: 0
   m_Name: CompassHands
   m_TagString: Untagged
@@ -274,20 +273,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 226276377}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 44.973}
---- !u!114 &722272497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 722272493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a55a87b2206e7a147969e3ebba483b4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GoalPos: {fileID: 1254380729}
-  background: {fileID: 1151294887}
 --- !u!1 &736884680
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +714,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 226276377}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1738471668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1738471670}
+  - component: {fileID: 1738471669}
+  m_Layer: 0
+  m_Name: Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1738471669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738471668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf2f57202b22f864592271ce06a40f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Goal_hand: {fileID: 1254380730}
+  Compass_hand: {fileID: 722272496}
+  background: {fileID: 1151294887}
+--- !u!4 &1738471670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738471668}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.94196, y: -0.52643776, z: -0.36269757}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1961924540
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,3 +939,4 @@ SceneRoots:
   - {fileID: 293031305}
   - {fileID: 736884682}
   - {fileID: 1151294889}
+  - {fileID: 1738471670}
