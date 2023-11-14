@@ -15,6 +15,7 @@ public class CompassController : MonoBehaviour
     void Start()
     {
         phoneController = gameObject.AddComponent<GyroController>();
+
         Count = 0;
         phoneController.EnableGyro();
     }
