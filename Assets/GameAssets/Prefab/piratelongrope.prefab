@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8903100485805231080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.56, y: 7.75, z: 0}
+  m_LocalPosition: {x: -0.8, y: 1.17, z: 0}
   m_LocalScale: {x: 0.23101941, y: 0.24401659, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -146,7 +146,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.7823038, y: 6.99044}
+  m_Offset: {x: -2.7823033, y: 6.9904404}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -157,7 +157,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1393166, y: 12.427201}
+  m_Size: {x: 2.0746899, y: 13.903122}
   m_EdgeRadius: 0
 --- !u!114 &5404040842078652027
 MonoBehaviour:
@@ -172,5 +172,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winSprite: {fileID: 21300000, guid: 6170126ca7182e64c9d84282d80988dd, type: 3}
-  moveSpeed: 2
+  moveSpeed: 3
   growthRate: 0.05
