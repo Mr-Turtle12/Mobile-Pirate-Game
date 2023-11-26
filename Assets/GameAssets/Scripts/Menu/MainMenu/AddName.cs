@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AddName : MonoBehaviour
@@ -40,7 +36,7 @@ public class AddName : MonoBehaviour
         GameMode gameMode = dataCarrier.GetGameMode();
         if (gameMode.Equals(GameMode.FreePlay))
         {
-            //Load Main map
+            SceneManager.LoadScene("mapMenu");
             Debug.Log("Load up main map");
         }
         else if (gameMode.Equals(GameMode.Endless))
