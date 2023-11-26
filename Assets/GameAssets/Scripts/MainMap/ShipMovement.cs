@@ -5,17 +5,39 @@ using UnityEngine;
 public class ShipMovement : MonoBehaviour
 {
     public Transform[] objectLocations; // Array of allowed positions
-    public GameObject[] GameInto;
+    public GameObject[] GameIntro;
     private int currentLocationIndex = 0; // Initial position index
     public float moveSpeed = 5f; // Adjust this value to control the movement speed
     public float wobbleAmount = 0.1f; // Adjust this value to control the wobbling
+    private bool isStationary = true;
+
+    public int GetCurrentLocationIndex()
+    {
+        return currentLocationIndex;
+    }
+    void Start()
+    {
+        transform.position = new Vector3(objectLocations[currentLocationIndex].position.x, objectLocations[currentLocationIndex].position.y, -1f);
+        foreach (var Intro in GameIntro)
+        {
+            Intro.SetActive(false);
+        }
+        GameIntro[currentLocationIndex].SetActive(true);
+    }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && isStationary)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            GameInto[currentLocationIndex].SetActive(false);
+
+            if (mousePosition.x > -0.11f && mousePosition.y < -4.16f)
+            {
+                return;
+            }
+
+            isStationary = false;
+            GameIntro[currentLocationIndex].SetActive(false);
             // Check if the click is above or below the current position
             if (mousePosition.y > transform.position.y && currentLocationIndex > 0)
             {
@@ -66,7 +88,8 @@ public class ShipMovement : MonoBehaviour
 
         // Ensure the final position is exactly the target position
         transform.position = targetPosition;
-        GameInto[currentLocationIndex].SetActive(true);
+        isStationary = true;
+        GameIntro[currentLocationIndex].SetActive(true);
 
     }
 }
