@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class StartMiniGames : MonoBehaviour
 {
@@ -20,8 +22,12 @@ public class StartMiniGames : MonoBehaviour
 
     void startGame()
     {
-        int Gameindex = Gets.GetCurrentLocationIndex();
+        int gameIndex = Gets.GetCurrentLocationIndex();
         //Load Game withg Game index
-        Debug.Log("load game with id:" + Gameindex);
+        Debug.Log("load game with id:" + gameIndex);
+        if (gameIndex.Equals(3))
+        {
+            SceneManager.LoadScene("CompassGame");
+        }
     }
 }
