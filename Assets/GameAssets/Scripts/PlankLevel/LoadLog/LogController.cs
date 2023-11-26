@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class LogController : MonoBehaviour
@@ -8,7 +9,10 @@ public class LogController : MonoBehaviour
     public int maxcount = 2;
     private GameObject CurrentLog;
     private GyroController phoneController;
+    private bool CreateNewCrete;
     private int count;
+    public CountdownController Starter;
+    private int LandedSafely = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -16,17 +20,18 @@ public class LogController : MonoBehaviour
         phoneController = gameObject.AddComponent<GyroController>();
         phoneController.EnableGyro();
         count = 0;
-
-        CreateCrate();
+        CreateNewCrete = true;
     }
 
+    public void increaseLandedSafely()
+    {
+        LandedSafely++;
+    }
     private void CreateCrate()
     {
         float[] numbers = { 1.56f, 0.02f, -1.62f };
         float[] angles = { -68f, -33f, -21f, 19f, 50f, 62f };
-        int randomAngle = Random.Range(0, angles.Length);
         int randomIndex = Random.Range(0, numbers.Length);
-        Debug.Log(angles[randomAngle]);
         CurrentLog = Instantiate(Log, new Vector3(numbers[randomIndex], 5.87f, 0f), Quaternion.Euler(0, 0, Random.Range(-90f, 90f))) as GameObject;
         count++;
     }
@@ -34,19 +39,29 @@ public class LogController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CurrentLog.GetComponent<boxCollides>().landed)
+        if (Starter.start)
         {
-            if (count <= maxcount)
+            if (CreateNewCrete)
             {
                 CreateCrate();
+                CreateNewCrete = false;
             }
-            else
-            {
-                CurrentLog = Instantiate(Log, new Vector3(-1000f, -1000f, 0f), Quaternion.Euler(0, 0, 0)) as GameObject;
-            }
-        }
 
-        CurrentLog.transform.eulerAngles = phoneController.AddGyro(CurrentLog.transform.eulerAngles, false, false, true);
+            if (CurrentLog.GetComponent<boxCollides>().landed)
+            {
+                if (count <= maxcount)
+                {
+                    CreateNewCrete = true;
+                }
+                else
+                {
+                    Debug.Log(LandedSafely);
+                    Starter.endGame();
+                }
+            }
+
+            CurrentLog.transform.eulerAngles = phoneController.AddGyro(CurrentLog.transform.eulerAngles, false, false, true);
+        }
 
 
     }

@@ -5,10 +5,11 @@ using UnityEngine;
 public class boxCollides : MonoBehaviour
 {
     public bool landed = false;
+    private LogController controller;
     // Start is called before the first frame update
     void Start()
     {
-
+        controller = GameObject.FindWithTag("GameController").GetComponent<LogController>();
 
     }
 
@@ -25,6 +26,7 @@ public class boxCollides : MonoBehaviour
             if ((gameObject.transform.eulerAngles.z % 90) <= 5 || (gameObject.transform.eulerAngles.z % 90) >= 85)
             {
                 gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                controller.increaseLandedSafely();
 
             }
             else
