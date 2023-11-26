@@ -32,7 +32,7 @@ public class ShipMovement : MonoBehaviour
     {
         StopAllCoroutines(); // Stop any ongoing movement coroutine
 
-        StartCoroutine(MoveCoroutine(objectLocations[newIndex].position));
+        StartCoroutine(MoveCoroutine(new Vector3(objectLocations[newIndex].position.x, objectLocations[newIndex].position.y, -1f)));
         currentLocationIndex = newIndex;
     }
 
