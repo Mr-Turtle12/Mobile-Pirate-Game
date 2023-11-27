@@ -7,7 +7,7 @@ public class ThrustController : MonoBehaviour
     bool coolDownBool = false;
     private float cooldownTime = 1f;
 
-    public float GetThrush(float Threshold)
+    public float GetThrust(float Threshold)
     {
         // Get the accelerometer data
         Vector3 acceleration = Input.acceleration;
@@ -20,9 +20,9 @@ public class ThrustController : MonoBehaviour
         }
         return 0f;
     }
-    public bool IsThrush(float Threshold)
+    public bool IsThrust(float Threshold)
     {
-        if (GetThrush(Threshold) > 0)
+        if (GetThrust(Threshold) > 0)
         {
             return true;
         }

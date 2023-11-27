@@ -37,7 +37,7 @@ public class seagullController : MonoBehaviour
 
     void Update()
     {
-        if (Starter.start && !Stop)
+        if (Starter.isRunning() && !Stop)
         {
             float[] data = new float[256];
             audioSource.GetOutputData(data, 0);

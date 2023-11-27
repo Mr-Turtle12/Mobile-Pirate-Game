@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class CountdownController : MonoBehaviour
 {
     public GameObject UI;
-    public bool start;
-    private float timeBetween = 0.4f;
+    public float timeBetween = 0.4f;
+    public string NextScene = "mapMenu";
+    public float miniGameTime = 5f;
+
+    private bool start;
     private Text Countdown;
     private Text Description;
     private GameObject Icon;
-    public string NextScene = "mapMenu";
 
     private void Start()
     {
@@ -21,7 +23,6 @@ public class CountdownController : MonoBehaviour
 
         start = false;
 
-        // Start the countdown
         StartCoroutine(StartCountdown());
     }
 
@@ -36,9 +37,10 @@ public class CountdownController : MonoBehaviour
         SetCountdownText("Go!");
         yield return new WaitForSeconds(timeBetween);
 
-        // Enable the 'game' GameObject and disable the 'ui' GameObject
         UI.SetActive(false);
         start = true;
+        StartCoroutine(Timer());
+
 
     }
     IEnumerator EndCountdown()
@@ -68,5 +70,14 @@ public class CountdownController : MonoBehaviour
         Description.text = "Pass the Phone!";
         UI.SetActive(true);
         StartCoroutine(EndCountdown());
+    }
+    public bool isRunning()
+    {
+        return start;
+    }
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(miniGameTime);
+        endGame();
     }
 }
