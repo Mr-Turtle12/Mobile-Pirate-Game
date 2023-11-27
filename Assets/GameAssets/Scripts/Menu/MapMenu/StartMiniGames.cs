@@ -40,7 +40,7 @@ public class StartMiniGames : MonoBehaviour
         }
         else if (gameIndex.Equals(3)) //Wood Island
         {
-            SceneManager.LoadScene("LoadLogs");
+            SceneManager.LoadScene("TreeTap");
         }
     }
 }
