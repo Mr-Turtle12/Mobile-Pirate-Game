@@ -25,9 +25,21 @@ public class StartMiniGames : MonoBehaviour
         int gameIndex = Gets.GetCurrentLocationIndex();
         //Load Game withg Game index
         Debug.Log("load game with id:" + gameIndex);
-        if (gameIndex.Equals(3))
+        if (gameIndex.Equals(0))// Cannonball Island
+        {
+            Debug.Log("Load Cannonball island");
+        }
+        else if (gameIndex.Equals(1)) //Treasure Island
         {
             SceneManager.LoadScene("CompassGame");
+        }
+        else if (gameIndex.Equals(2)) //Water Invasion
+        {
+            Debug.Log("Load water invasion");
+        }
+        else if (gameIndex.Equals(3)) //Wood Island
+        {
+            SceneManager.LoadScene("LoadLogs");
         }
     }
 }

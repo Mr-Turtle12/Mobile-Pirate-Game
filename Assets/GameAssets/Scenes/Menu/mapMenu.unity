@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 443374050}
   - component: {fileID: 443374051}
   m_Layer: 0
-  m_Name: SpotXs 3
+  m_Name: WaterInvasion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -435,7 +435,7 @@ Transform:
   m_GameObject: {fileID: 443374049}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -541.913, y: -147.13062, z: 22.692417}
+  m_LocalPosition: {x: -543.14, y: -147.92, z: 22.692417}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -613,7 +613,7 @@ GameObject:
   - component: {fileID: 722138134}
   - component: {fileID: 722138135}
   m_Layer: 0
-  m_Name: SpotXs 1
+  m_Name: WoodIsland
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -628,7 +628,7 @@ Transform:
   m_GameObject: {fileID: 722138133}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -543.13306, y: -144.95062, z: 22.692417}
+  m_LocalPosition: {x: -542.82, y: -143.86, z: 22.692417}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 1018694354}
   - component: {fileID: 1018694353}
   m_Layer: 5
-  m_Name: GameIntro1
+  m_Name: TreasureIntro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -804,7 +804,7 @@ GameObject:
   - component: {fileID: 1684012873}
   - component: {fileID: 1684012874}
   m_Layer: 0
-  m_Name: SpotXs
+  m_Name: CannonIsland
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -819,7 +819,7 @@ Transform:
   m_GameObject: {fileID: 1684012872}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -540.49304, y: -141.65062, z: 22.692417}
+  m_LocalPosition: {x: -540.6, y: -141.67, z: 22.692417}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 1725841088}
   - component: {fileID: 1725841089}
   m_Layer: 0
-  m_Name: SpotXs 2
+  m_Name: TreasureIsland
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -903,7 +903,7 @@ Transform:
   m_GameObject: {fileID: 1725841087}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -540.523, y: -145.21062, z: 22.692417}
+  m_LocalPosition: {x: -540.01, y: -146.04, z: 22.692417}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1065,7 +1065,7 @@ GameObject:
   - component: {fileID: 1794976691}
   - component: {fileID: 1794976690}
   m_Layer: 5
-  m_Name: GameIntro3
+  m_Name: WoodIntro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1137,7 +1137,7 @@ GameObject:
   - component: {fileID: 1996637844}
   - component: {fileID: 1996637843}
   m_Layer: 5
-  m_Name: GameIntro0
+  m_Name: CannonIntro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1209,7 +1209,7 @@ GameObject:
   - component: {fileID: 2022907033}
   - component: {fileID: 2022907032}
   m_Layer: 5
-  m_Name: GameIntro2
+  m_Name: WaterIntro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
