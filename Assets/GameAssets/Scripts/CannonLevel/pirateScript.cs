@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class pirateScript : MonoBehaviour
@@ -11,9 +12,12 @@ public class pirateScript : MonoBehaviour
     private bool sliced = false;
     private Vector3 screen; // Position on the screen
     private bool isMoving = false;
+    private int score = 0;
+    public event Action OnHit;
+
 
     void Update()
-    {
+{
         // Set screen position
         screen = Camera.main.WorldToScreenPoint(transform.position);
         
@@ -46,6 +50,7 @@ public class pirateScript : MonoBehaviour
 
     public void Hit()
     {
+        OnHit?.Invoke();
         // Change Z dimension to 2
         sliced = true;
         Vector3 newPosition = transform.position;
@@ -72,7 +77,6 @@ public class pirateScript : MonoBehaviour
         if (other.CompareTag("Ground"))
         {
             sliced = true;
-            Debug.Log("Collided");
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             if (spriteRenderer != null && winSprite != null)
             {
