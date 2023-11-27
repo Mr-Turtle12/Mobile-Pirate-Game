@@ -25,7 +25,7 @@ public class CompassController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Starter.start)
+        if (Starter.isRunning())
         {
             Vector3 previousEulerAngles = Compass_hand.eulerAngles;
 

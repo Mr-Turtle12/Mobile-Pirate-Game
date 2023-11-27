@@ -39,7 +39,7 @@ public class LogController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Starter.start)
+        if (Starter.isRunning())
         {
             if (CreateNewCrete)
             {

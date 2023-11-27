@@ -14,6 +14,7 @@ public class DigController : MonoBehaviour
     private ThrustController thrushController;
     private CountdownController countdown;
     private float total = 0;
+    private bool stopped = true;
 
     void Start()
     {
@@ -21,14 +22,13 @@ public class DigController : MonoBehaviour
         countdown = gameObject.GetComponent<CountdownController>();
         thrushController.setCoolDownTime(coolDownTime);
         animator.speed = coolDownTime;
-        StartCoroutine(Timer());
     }
 
     void Update()
     {
-        if (countdown.start)
+        if (countdown.isRunning())
         {
-            float thrushValue = thrushController.GetThrush(fallThreshold);
+            float thrushValue = thrushController.GetThrust(fallThreshold);
             if (thrushValue > 0)
             {
                 spot.SetActive(false);
@@ -42,14 +42,13 @@ public class DigController : MonoBehaviour
                 spriteRenderer.color = newColor;
             }
         }
-    }
-    IEnumerator Timer()
-    {
-        yield return new WaitForSeconds(gameTime);
-        Color newColor = spriteRenderer.color;
-        Debug.Log(newColor);
-        Debug.Log("Coin found:" + newColor.a * 200);
-        countdown.endGame();
+        else if (stopped)
+        {
+            stopped = true;
+            Color newColor = spriteRenderer.color;
+            Debug.Log(newColor);
+            Debug.Log("Coin found:" + newColor.a * 200);
+        }
     }
 
 }

@@ -16,27 +16,27 @@ public class PirateSpawner : MonoBehaviour
 
     void Update()
     {
-            // Check if it's time to spawn a new pirate
-            if (Time.time >= nextSpawnTime)
-            {
-                SpawnPirate();
-                nextSpawnTime = Time.time + spawnInterval;
-            }
+        // Check if it's time to spawn a new pirate
+        if (Time.time >= nextSpawnTime)
+        {
+            SpawnPirate();
+            nextSpawnTime = Time.time + spawnInterval;
+        }
     }
 
     void SpawnPirate()
     {
-        if (Starter.start && spawning)
+        if (Starter.isRunning() && spawning)
         {
             // Instantiate a new pirate from the prefab
             GameObject newPirate = Instantiate(piratePrefab, GetRandomSpawnPosition(), Quaternion.identity);
-            
+
             // Set the GameController as the parent to manage hierarchy
             newPirate.transform.parent = transform;
-            
+
             // Get reference to the pirateScript component of the newly spawned pirate
             pirateScript pirateScriptComponent = newPirate.GetComponent<pirateScript>();
-            
+
             // Subscribe to the pirate's Hit event to update the score
             pirateScriptComponent.OnHit += UpdateScore;
         }
