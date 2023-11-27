@@ -219,6 +219,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7269033670133944470, guid: 05eb24713d0a8fd4b8fcac89eb413fdd, type: 3}
+      propertyPath: m_Text
+      value: Shout to scare the seagulls away
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -768,7 +772,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 1374993973}
-  start: 0
+  timeBetween: 0.4
+  NextScene: mapMenu
+  miniGameTime: 5
 --- !u!4 &1758892524
 Transform:
   m_ObjectHideFlags: 0

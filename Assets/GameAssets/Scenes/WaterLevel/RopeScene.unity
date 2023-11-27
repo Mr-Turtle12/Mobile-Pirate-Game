@@ -448,6 +448,10 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: 4c88de2ec2c2d0a4b8018c7d9a7df150, type: 3}
+    - target: {fileID: 4936332582282194162, guid: 05eb24713d0a8fd4b8fcac89eb413fdd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 56
+      objectReference: {fileID: 0}
     - target: {fileID: 5558613205521459441, guid: 05eb24713d0a8fd4b8fcac89eb413fdd, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -673,7 +677,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 598922132}
-  start: 0
+  timeBetween: 0.4
+  NextScene: mapMenu
+  miniGameTime: 5
 --- !u!4 &1930502811
 Transform:
   m_ObjectHideFlags: 0
