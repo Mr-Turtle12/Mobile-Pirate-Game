@@ -11,6 +11,7 @@ public class CountdownController : MonoBehaviour
     private Text Countdown;
     private Text Description;
     private GameObject Icon;
+    public string NextScene = "mapMenu";
 
     private void Start()
     {
@@ -51,7 +52,7 @@ public class CountdownController : MonoBehaviour
         yield return new WaitForSeconds(timeBetween);
 
         //Next Level but for time being going back to map:
-        SceneManager.LoadScene("mapMenu");
+        SceneManager.LoadScene(NextScene);
 
     }
 
