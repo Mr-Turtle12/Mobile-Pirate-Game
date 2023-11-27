@@ -13,7 +13,6 @@ public class flyAway : MonoBehaviour
     private float Ythreshold = 8.0f;
     private SpriteRenderer spriteRenderer;
     private bool isSprite1 = true; // Start with the first sprite
-    private float timeSinceLastChange;
     private Vector3 startPosition;
     private Vector3 targetPosition;
     private float startTime;
@@ -26,13 +25,12 @@ public class flyAway : MonoBehaviour
             Debug.LogError("SpriteRenderer component not found on the object.");
         }
 
-        timeSinceLastChange = 0f;
         startPosition = transform.position;
     }
 
     public void OnFly()
     {
-        if (!flyTime) 
+        if (!flyTime)
         {
             flyTime = true;
             InvokeRepeating("ToggleSprite", 0f, changeInterval);

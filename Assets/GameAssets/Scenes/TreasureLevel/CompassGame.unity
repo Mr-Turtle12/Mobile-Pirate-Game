@@ -1027,6 +1027,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3768072891735990867, guid: 05eb24713d0a8fd4b8fcac89eb413fdd, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 9388b91370d36f04989affa2efaf1466, type: 3}
     - target: {fileID: 5558613205521459441, guid: 05eb24713d0a8fd4b8fcac89eb413fdd, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1110,6 +1114,10 @@ PrefabInstance:
     - target: {fileID: 6644247850141155957, guid: 05eb24713d0a8fd4b8fcac89eb413fdd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269033670133944470, guid: 05eb24713d0a8fd4b8fcac89eb413fdd, type: 3}
+      propertyPath: m_Text
+      value: Rotate the compass to match
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

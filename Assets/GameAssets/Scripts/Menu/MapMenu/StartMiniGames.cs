@@ -27,7 +27,8 @@ public class StartMiniGames : MonoBehaviour
         Debug.Log("load game with id:" + gameIndex);
         if (gameIndex.Equals(0))// Cannonball Island
         {
-            Debug.Log("Load Cannonball island");
+            SceneManager.LoadScene("SeagullScene");
+
         }
         else if (gameIndex.Equals(1)) //Treasure Island
         {
@@ -35,7 +36,7 @@ public class StartMiniGames : MonoBehaviour
         }
         else if (gameIndex.Equals(2)) //Water Invasion
         {
-            Debug.Log("Load water invasion");
+            SceneManager.LoadScene("RopeScene");
         }
         else if (gameIndex.Equals(3)) //Wood Island
         {
