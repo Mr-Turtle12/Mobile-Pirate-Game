@@ -26,5 +26,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameAssets/Scenes/PlankLevel/TreeTap.unity
     guid: 68b76f7b0457cb64780abf2eea12d74e
+  - enabled: 1
+    path: Assets/GameAssets/Scenes/TreasureLevel/DigTreasure.unity
+    guid: 2052d0edbbab2614abaf903e98f9bfb4
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 5606f15635f865045bce189738aad079, type: 2}
