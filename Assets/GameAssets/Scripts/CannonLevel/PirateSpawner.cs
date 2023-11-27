@@ -12,6 +12,7 @@ public class PirateSpawner : MonoBehaviour
     public float spawnInterval = 2f;
     private float nextSpawnTime = 0f;
     public CountdownController Starter;
+    private bool spawning = true;
 
     void Update()
     {
@@ -25,7 +26,7 @@ public class PirateSpawner : MonoBehaviour
 
     void SpawnPirate()
     {
-        if (Starter.start)
+        if (Starter.start && spawning)
         {
             // Instantiate a new pirate from the prefab
             GameObject newPirate = Instantiate(piratePrefab, GetRandomSpawnPosition(), Quaternion.identity);
@@ -35,9 +36,6 @@ public class PirateSpawner : MonoBehaviour
             
             // Get reference to the pirateScript component of the newly spawned pirate
             pirateScript pirateScriptComponent = newPirate.GetComponent<pirateScript>();
-            
-            // Set the CountdownController reference in the pirateScript
-            pirateScriptComponent.Starter = GetComponent<CountdownController>();
             
             // Subscribe to the pirate's Hit event to update the score
             pirateScriptComponent.OnHit += UpdateScore;
@@ -51,7 +49,7 @@ public class PirateSpawner : MonoBehaviour
         float spawnY = 9f;
         return new Vector3(spawnX, spawnY, 0);
     }
-    
+
     void UpdateScore()
     {
         // Called when a pirate is sliced
@@ -66,6 +64,7 @@ public class PirateSpawner : MonoBehaviour
 
     IEnumerator EndGameAfterDelay()
     {
+        spawning = false;
         // Wait for 1 second
         yield return new WaitForSeconds(1.0f);
 

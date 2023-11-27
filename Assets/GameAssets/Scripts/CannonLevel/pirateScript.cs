@@ -15,7 +15,6 @@ public class pirateScript : MonoBehaviour
     private int score = 0;
     public event Action OnHit;
 
-
     void Update()
 {
         // Set screen position
