@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Crate
+  - Tree
+  - Axe
   layers:
   - Default
   - TransparentFX
