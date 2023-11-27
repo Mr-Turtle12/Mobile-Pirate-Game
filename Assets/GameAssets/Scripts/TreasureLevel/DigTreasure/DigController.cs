@@ -13,14 +13,12 @@ public class DigController : MonoBehaviour
 
     private ThrustController thrushController;
     private CountdownController countdown;
-    private bool IsGame;
     private float total = 0;
 
     void Start()
     {
         thrushController = gameObject.AddComponent<ThrustController>();
         countdown = gameObject.GetComponent<CountdownController>();
-        IsGame = true;
         thrushController.setCoolDownTime(coolDownTime);
         animator.speed = coolDownTime;
         StartCoroutine(Timer());

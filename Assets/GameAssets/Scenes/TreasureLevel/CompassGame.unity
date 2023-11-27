@@ -851,6 +851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 1504166578}
   start: 0
+  NextScene: DigTreasure
 --- !u!1 &1961924540
 GameObject:
   m_ObjectHideFlags: 0
