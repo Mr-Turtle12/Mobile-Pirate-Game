@@ -8,7 +8,7 @@ public class CountdownController : MonoBehaviour
     public GameObject UI;
     public float timeBetween = 0.4f;
     public string NextScene = "mapMenu";
-    public float miniGameTime = 5f;
+    public float miniGameTime = 10f;
 
     private bool start;
     private Text Countdown;

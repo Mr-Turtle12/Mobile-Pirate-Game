@@ -2,59 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
-
 public class seagullController : MonoBehaviour
 {
-    public AudioSource audioSource;
-    public flyAway[] Seagulls = new flyAway[4];
-
-    public float[] thresholds = new float[4] { 0.01f, 0.05f, 0.09f, 0.13f };
-    private bool Stop = false;
+    private VocalController voiceController;
+    private int score = 0;
+    [SerializeField] private List<float> thresholds;
+    [SerializeField] private seagullMovement[] Seagulls;
+    [SerializeField] private GameObject seagullPrefab;
+    private float flySpeed = 5.0f;
+    private Coroutine spawnCoroutine;
     public CountdownController Starter;
 
-    void Start()
+    private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = Microphone.Start(null, true, 10, 44100);
-        audioSource.loop = true;
-        while (!(Microphone.GetPosition(null) > 0)) { }
-        audioSource.Play();
-
-        StartCoroutine(StartGameTimer());
+        voiceController = gameObject.AddComponent<VocalController>();
+        flySpeed = ((10.0f/Starter.miniGameTime)*flySpeed);
+        Debug.Log(flySpeed);
     }
 
-    IEnumerator StartGameTimer()
+    public int GetScore()
     {
-        yield return new WaitForSeconds(5f); // Wait for 5 seconds
-        Starter.endGame(); // Call endGame() after 5 seconds
-    }
-    IEnumerator Timer()
-    {
-        yield return new WaitForSeconds(1);
-        Stop = true;
+        return score;
     }
 
-    void Update()
+    public void IncreaseScore()
     {
-        if (Starter.isRunning() && !Stop)
+        score += 15;
+    }
+
+    private void Update()
+    {
+        if(Starter.isRunning())
         {
-            float[] data = new float[256];
-            audioSource.GetOutputData(data, 0);
+            List<bool> thresholdResults = voiceController.CheckVoiceThreshold(thresholds);
 
-            float average = 0;
-            foreach (float s in data)
+            for (int i = 0; i < thresholdResults.Count; i++)
             {
-                average += Mathf.Abs(s);
-            }
-            average /= 256;
-
-            for (int i = 0; i < 4; i++)
-            {
-                if (average > thresholds[i])
+                if (thresholdResults[i])
                 {
-                    Seagulls[i].OnFly();
-                    StartCoroutine(Timer());
+                    Seagulls[i].FlyAway(flySpeed);
                 }
             }
         }
