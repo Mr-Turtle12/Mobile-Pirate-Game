@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 8903100485805231080}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8, y: 1.17, z: 0}
-  m_LocalScale: {x: 0.23101941, y: 0.24401659, z: 1}
+  m_LocalPosition: {x: -0.8, y: -249.46414, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -146,18 +146,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.7823033, y: 6.9904404}
+  m_Offset: {x: -0.947639, y: 1.9306228}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20.67, y: 26.408083}
+    oldSize: {x: 6.89, y: 8.802694}
     newSize: {x: 20.67, y: 26.408083}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0746899, y: 13.903122}
+  m_Size: {x: 0.39433956, y: 3.7834864}
   m_EdgeRadius: 0
 --- !u!114 &5404040842078652027
 MonoBehaviour:
@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb4b39242b068c845a6377b97c3653f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winSprite: {fileID: 21300000, guid: 85fc3c1c86b14c9469e23296eeec881e, type: 3}
+  pirateWin: {fileID: 21300000, guid: 85fc3c1c86b14c9469e23296eeec881e, type: 3}
+  pirateLose: {fileID: 21300000, guid: 530ccec16ac328841b7c644d9c92e855, type: 3}
   moveSpeed: 3
   growthRate: 0.05
