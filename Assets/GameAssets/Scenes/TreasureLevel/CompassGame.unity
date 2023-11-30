@@ -819,9 +819,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Goal_hand: {fileID: 1254380730}
   Compass_hand: {fileID: 722272496}
+  newCompassAnimationPrefab: {fileID: 3611409435044303241, guid: 008d0ca797e0e63408342315f4958709, type: 3}
   background: {fileID: 1151294887}
-  newCompassAnimationprefab: {fileID: 3611409435044303241, guid: 008d0ca797e0e63408342315f4958709, type: 3}
-  Starter: {fileID: 1738471671}
 --- !u!4 &1738471670
 Transform:
   m_ObjectHideFlags: 0
@@ -850,8 +849,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 1504166578}
-  start: 0
+  timeBetween: 0.4
   NextScene: DigTreasure
+  miniGameTime: 10
 --- !u!1 &1961924540
 GameObject:
   m_ObjectHideFlags: 0

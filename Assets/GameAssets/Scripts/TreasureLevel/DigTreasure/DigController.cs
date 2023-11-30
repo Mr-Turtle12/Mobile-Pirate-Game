@@ -1,27 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DigController : MonoBehaviour
 {
     public float fallThreshold = 0.5f;
+    public float numOfThrustValue = 6f;
     public Animator animator;
     public SpriteRenderer spriteRenderer;
     public GameObject spot;
-    public float gameTime = 5f;
-    public float coolDownTime = 0.5f;
+    public GameObject TreasurePrefab;
 
     private ThrustController thrushController;
     private CountdownController countdown;
     private float total = 0;
-    private bool stopped = true;
+    private int holesDug = 0;
 
     void Start()
     {
         thrushController = gameObject.AddComponent<ThrustController>();
         countdown = gameObject.GetComponent<CountdownController>();
+        float coolDownTime = (10f / countdown.miniGameTime) / 2;
         thrushController.setCoolDownTime(coolDownTime);
-        animator.speed = coolDownTime;
+        animator.speed = 1 / coolDownTime * 0.138f;
+    }
+
+    public int GetScore()
+    {
+        return (int)(total * 10);
     }
 
     void Update()
@@ -34,21 +39,34 @@ public class DigController : MonoBehaviour
                 spot.SetActive(false);
                 total = total + thrushValue;
                 animator.SetTrigger("Move");
-                Debug.Log(total);
-
-
-                Color newColor = spriteRenderer.color;
-                newColor.a = total / 10;
-                spriteRenderer.color = newColor;
+                float OnHoleValue = (total - (holesDug * numOfThrustValue)) / numOfThrustValue;
+                setColour(OnHoleValue);
+            }
+            if (spriteRenderer.color.a > 1)
+            {
+                restartHole();
             }
         }
-        else if (stopped)
-        {
-            stopped = true;
-            Color newColor = spriteRenderer.color;
-            Debug.Log(newColor);
-            Debug.Log("Coin found:" + newColor.a * 200);
-        }
+    }
+    void setColour(float value)
+    {
+        Color newColour = spriteRenderer.color;
+        newColour.a = value;
+        spriteRenderer.color = newColour;
+    }
+
+    void restartHole()
+    {
+        //Spawn treasure
+        GameObject Animation = Instantiate(TreasurePrefab) as GameObject;
+        float animationSpeed = 5 / countdown.miniGameTime;
+        Animation.GetComponent<Animator>().speed = animationSpeed;
+        Destroy(Animation, animationSpeed);
+
+        //restart hole
+        spot.SetActive(true);
+        setColour(0);
+        holesDug++;
     }
 
 }

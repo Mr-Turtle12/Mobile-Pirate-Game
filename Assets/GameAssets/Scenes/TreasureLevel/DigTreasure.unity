@@ -168,12 +168,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 840ed45c5a797724aa43b10b5da6c67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallThreshold: 0.5
+  fallThreshold: 0.7
+  numOfThrustValue: 6
   animator: {fileID: 1000992493}
   spriteRenderer: {fileID: 1659914606}
   spot: {fileID: 1568587119}
-  gameTime: 5
-  coolDownTime: 0.5
+  TreasurePrefab: {fileID: 5693241395386055377, guid: 160c5cb35dae8a749a344e0e6b7a87ab, type: 3}
 --- !u!114 &50089811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +187,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 1636868308}
-  start: 0
+  timeBetween: 0.4
+  NextScene: mapMenu
+  miniGameTime: 10
 --- !u!1 &1000992490
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +503,10 @@ PrefabInstance:
     - target: {fileID: 5558613205521459441, guid: 05eb24713d0a8fd4b8fcac89eb413fdd, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558613205521459441, guid: 05eb24713d0a8fd4b8fcac89eb413fdd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6644247850141155957, guid: 05eb24713d0a8fd4b8fcac89eb413fdd, type: 3}
       propertyPath: m_Pivot.x

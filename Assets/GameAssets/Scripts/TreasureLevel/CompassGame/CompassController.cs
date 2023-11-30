@@ -1,24 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Windows.WebCam;
 
 public class CompassController : MonoBehaviour
 {
 
     public Transform Goal_hand;
     public Transform Compass_hand;
+    public GameObject newCompassAnimationPrefab;
     public GameObject background;
-    private int Count;
+
     private GyroController phoneController;
-    public GameObject newCompassAnimationprefab;
-    public CountdownController Starter;
+
+    private CountdownController Starter;
+    private int score;
+
     // Start is called before the first frame update
     void Start()
     {
         phoneController = gameObject.AddComponent<GyroController>();
-
-        Count = 0;
+        Starter = GetComponent<CountdownController>();
+        score = 0;
         phoneController.EnableGyro();
     }
 
@@ -31,32 +31,38 @@ public class CompassController : MonoBehaviour
 
             if (Mathf.Abs(previousEulerAngles.z - Goal_hand.rotation.eulerAngles.z) <= 2)
             {
-                GameObject Animation = Instantiate(newCompassAnimationprefab) as GameObject;
-                Destroy(Animation, 0.25f);
+                GameObject Animation = Instantiate(newCompassAnimationPrefab) as GameObject;
+                float animationSpeed = (10f / Starter.miniGameTime) * 0.25f;
+                Animation.GetComponent<Animator>().speed = 1 / animationSpeed * 1.25f;
+                Destroy(Animation, animationSpeed);
                 Goal_hand.GetComponent<RandomZPos>().ChangePos();
-                Count++;
-                if (Count > 3)
-                {
-                    Starter.endGame();
-                }
+                score++;
             }
-            if (Count <= 3)
-            {
-                Compass_hand.eulerAngles = phoneController.AddGyro(previousEulerAngles, false, false, true);
+            Compass_hand.eulerAngles = phoneController.AddGyro(previousEulerAngles, false, false, true);
 
-                Vector3 rotation = Compass_hand.rotation.eulerAngles;
-                float rotatedZ = rotation.z > 220 ? rotation.z - 360 : rotation.z;
-
-                // Map rotation to position
-                float t = Mathf.InverseLerp(-200, 220, rotatedZ);
-                float targetPosX = Mathf.Lerp(-4.2f, 4.5f, t);
-
-                // Move the background
-                Vector3 backgroundPosition = background.transform.position;
-                backgroundPosition.x = targetPosX;
-                background.transform.position = backgroundPosition;
-            }
-
+            UpdateBackground();
         }
     }
+
+    public int GetScore()
+    {
+        return score * 40;
+    }
+
+    void UpdateBackground()
+    {
+        Vector3 rotation = Compass_hand.rotation.eulerAngles;
+        float rotatedZ = rotation.z > 220 ? rotation.z - 360 : rotation.z;
+
+        // Map rotation to position
+        float t = Mathf.InverseLerp(-200, 220, rotatedZ);
+        float targetPosX = Mathf.Lerp(-4.2f, 4.5f, t);
+
+        // Move the background
+        Vector3 backgroundPosition = background.transform.position;
+        backgroundPosition.x = targetPosX;
+        background.transform.position = backgroundPosition;
+
+    }
+
 }
