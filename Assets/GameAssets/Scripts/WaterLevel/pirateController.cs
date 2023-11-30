@@ -9,7 +9,7 @@ public class pirateController : MonoBehaviour
     [SerializeField] private Slicer playerSlicer;
     [SerializeField] private pirateMovement mover;
     private float nextSpawnTime = 0f;
-    private float spawnInterval = 2.0f;
+    private float spawnInterval = 1.8f;
     public CountdownController Starter;
 
     public void Start()
