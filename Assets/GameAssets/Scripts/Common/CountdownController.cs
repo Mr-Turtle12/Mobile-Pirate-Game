@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class CountdownController : MonoBehaviour
 {
     public GameObject UI;
-    public float timeBetween = 0.4f;
+    public float timeBetween = 0.5f;
     public string NextScene = "mapMenu";
     public float miniGameTime = 5f;
 
@@ -17,6 +17,8 @@ public class CountdownController : MonoBehaviour
 
     private void Start()
     {
+        timeBetween = (10f / miniGameTime) * timeBetween;
+
         Countdown = UI.transform.Find("Countdown").GetComponent<Text>();
         Description = UI.transform.Find("Description").GetComponent<Text>();
         Icon = UI.transform.Find("Icon").gameObject;
@@ -28,6 +30,7 @@ public class CountdownController : MonoBehaviour
 
     IEnumerator StartCountdown()
     {
+
         SetCountdownText("3..");
         yield return new WaitForSeconds(timeBetween);
         SetCountdownText("2..");

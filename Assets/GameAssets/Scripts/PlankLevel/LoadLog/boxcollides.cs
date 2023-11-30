@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class boxCollides : MonoBehaviour
@@ -14,9 +12,6 @@ public class boxCollides : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-    }
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Crate")
@@ -26,17 +21,15 @@ public class boxCollides : MonoBehaviour
             if ((gameObject.transform.eulerAngles.z % 90) <= 5 || (gameObject.transform.eulerAngles.z % 90) >= 85)
             {
                 gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-                controller.increaseLandedSafely();
+                controller.SafelyLandedCrate();
 
             }
             else
             {
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(300, 300f));
+                controller.NotSafelyLandedCrate();
             }
-            landed = true;
-
-
         }
     }
 }
