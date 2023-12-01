@@ -13,6 +13,7 @@ public class cameraController : MonoBehaviour
     private float moveSpeed = 6.0f; 
     private float rotationTime = 0.2f; 
     private int clickCount = 0;
+    private int counter = 1;
     private GameObject mainCamera;
     private Coroutine movementCoroutine;
     public CountdownController Starter;
@@ -77,6 +78,7 @@ public class cameraController : MonoBehaviour
     private IEnumerator moveCoroutine(float moveSpeed)
     {
         float elapsedTime = 0.0f;
+        counter += 1;
 
         while (elapsedTime < 1f)
         {
@@ -89,6 +91,14 @@ public class cameraController : MonoBehaviour
         initialCameraPosition = mainCamera.transform.position;
         initialAxePosition = axe.transform.position;
 
+        if (counter % 2 == 0)
+        {
+            GameObject background = GameObject.FindWithTag("Background" + (counter - 1));
+            GameObject newBackground = GameObject.FindWithTag("Background" + counter);
+            Vector3 backgroundPosition = background.transform.position;
+            newBackground.transform.position = new Vector3(backgroundPosition.x + 10.4f, backgroundPosition.y, backgroundPosition.z);
+        }
+        
         GameObject trunk = GameObject.FindWithTag("Trunk");
         Destroy(trunk);
     }
