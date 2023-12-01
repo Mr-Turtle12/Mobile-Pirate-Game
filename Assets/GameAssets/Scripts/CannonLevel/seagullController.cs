@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class seagullController : MonoBehaviour
@@ -9,6 +10,7 @@ public class seagullController : MonoBehaviour
     [SerializeField] private List<float> thresholds;
     [SerializeField] private seagullMovement[] Seagulls;
     [SerializeField] private GameObject seagullPrefab;
+    private float timeRatio;
     private float flySpeed = 5.0f;
     private Coroutine spawnCoroutine;
     public CountdownController Starter;
@@ -16,8 +18,8 @@ public class seagullController : MonoBehaviour
     private void Start()
     {
         voiceController = gameObject.AddComponent<VocalController>();
-        flySpeed = ((10.0f/Starter.miniGameTime)*flySpeed);
-        Debug.Log(flySpeed);
+        timeRatio = 10.0f/Starter.miniGameTime;
+        flySpeed = Math.Max(timeRatio*flySpeed, flySpeed);
     }
 
     public int GetScore()

@@ -9,26 +9,22 @@ public class Axe : MonoBehaviour
 
     void Start()
     {
-        // Record the original rotation at the start
         originalRotation = transform.rotation;
     }
 
-    public void RotateAxe()
+    public void RotateAxe(float rotationTime)
     {
         if (!isRotating)
         {
-            // Rotate the axe quickly in one direction
-            StartCoroutine(RotateAxeCoroutine());
+            StartCoroutine(RotateAxeCoroutine(rotationTime));
         }
     }
 
-    System.Collections.IEnumerator RotateAxeCoroutine()
+    private IEnumerator RotateAxeCoroutine(float rotationTime)
     {
         isRotating = true;
 
-        // Rotate quickly in one direction
         Quaternion targetRotation = originalRotation * Quaternion.Euler(0f, 0f, 50f);
-        float rotationTime = 0.2f; // Adjust the time as needed
 
         float elapsedRotationTime = 0f;
         while (elapsedRotationTime < rotationTime)
@@ -38,8 +34,7 @@ public class Axe : MonoBehaviour
             yield return null;
         }
 
-        // Reset the axe quickly to its starting position
-        float resetTime = 0.05f; // Adjust the time as needed
+        float resetTime = rotationTime/4.0f;
         float elapsedResetTime = 0f;
 
         while (elapsedResetTime < resetTime)
