@@ -14,6 +14,9 @@ public class cameraController : MonoBehaviour
     private float rotationTime = 0.2f; 
     private int clickCount = 0;
     private int counter = 1;
+    private int switcher = 1;
+    private GameObject background;
+    private GameObject newBackground;
     private GameObject mainCamera;
     private Coroutine movementCoroutine;
     public CountdownController Starter;
@@ -51,7 +54,6 @@ public class cameraController : MonoBehaviour
                 axe.RotateAxe(rotationTime);
                 clickCount++;
                 IncreaseScore();
-                Debug.Log(clickCount);
                 if (clickCount >= 3)
                 {
                     TreeFell();
@@ -74,12 +76,35 @@ public class cameraController : MonoBehaviour
         treeScript.SetController(this);
         Tree = treeScript;
     }
+
+    void MoveBackground()
+    {
+        counter += 1;
+        if (counter % 2 == 0)
+        {
+            switcher += 1;
+
+            if (switcher % 2 == 0)
+            {
+                GameObject background = GameObject.FindWithTag("Background1");
+                GameObject newBackground = GameObject.FindWithTag("Background2");
+                Vector3 backgroundPosition = background.transform.position;
+                newBackground.transform.position = new Vector3(backgroundPosition.x + 10.4f, backgroundPosition.y, backgroundPosition.z);
+            }
+            else
+            {
+                GameObject background = GameObject.FindWithTag("Background2");
+                GameObject newBackground = GameObject.FindWithTag("Background1");
+                Vector3 backgroundPosition = background.transform.position;
+                newBackground.transform.position = new Vector3(backgroundPosition.x + 10.4f, backgroundPosition.y, backgroundPosition.z);
+            }   
+        }
+    }
         
     private IEnumerator moveCoroutine(float moveSpeed)
     {
         float elapsedTime = 0.0f;
-        counter += 1;
-
+     
         while (elapsedTime < 1f)
         {
             mainCamera.transform.position = Vector3.Lerp(initialCameraPosition, initialCameraPosition + Vector3.right * 5.0f, elapsedTime);
@@ -87,18 +112,12 @@ public class cameraController : MonoBehaviour
             elapsedTime += Time.deltaTime * (moveSpeed/5);
             yield return null;
         }
-
+        
         initialCameraPosition = mainCamera.transform.position;
         initialAxePosition = axe.transform.position;
 
-        if (counter % 2 == 0)
-        {
-            GameObject background = GameObject.FindWithTag("Background" + (counter - 1));
-            GameObject newBackground = GameObject.FindWithTag("Background" + counter);
-            Vector3 backgroundPosition = background.transform.position;
-            newBackground.transform.position = new Vector3(backgroundPosition.x + 10.4f, backgroundPosition.y, backgroundPosition.z);
-        }
-        
+        MoveBackground();
+
         GameObject trunk = GameObject.FindWithTag("Trunk");
         Destroy(trunk);
     }

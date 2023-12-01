@@ -8,7 +8,8 @@ TagManager:
   - Tree
   - Axe
   - Trunk
-  - Background
+  - Background2
+  - Background1
   layers:
   - Default
   - TransparentFX
