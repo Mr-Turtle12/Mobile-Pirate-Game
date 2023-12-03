@@ -8,11 +8,9 @@ public class CameraMovement : MonoBehaviour
     public float movementDuration = 2f; // Adjust the duration of movement
     public float cooldownDuration = 2f; // Adjust the cooldown duration
 
-    private int treeCutCount = 0;
     private bool treeCut = false;
     private GameObject mainCamera;
     private GameObject axe;
-    public CountdownController Starter;
 
     void Start()
     {
@@ -32,18 +30,10 @@ public class CameraMovement : MonoBehaviour
     {
         if (!treeCut)
         {
-            treeCutCount++;
+            treeCut = true;
+            Invoke("ResetTreeCutFlag", movementDuration + cooldownDuration);
+            Invoke("StopMovement", movementDuration);
 
-            if (treeCutCount >= 3)
-            {
-                Starter.endGame();
-            }
-            else
-            {
-                treeCut = true;
-                Invoke("ResetTreeCutFlag", movementDuration + cooldownDuration);
-                Invoke("StopMovement", movementDuration);
-            }
         }
     }
 

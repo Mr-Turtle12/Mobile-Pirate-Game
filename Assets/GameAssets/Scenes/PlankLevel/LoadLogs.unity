@@ -1006,6 +1006,7 @@ GameObject:
   - component: {fileID: 1549241956}
   - component: {fileID: 1549241957}
   - component: {fileID: 1549241958}
+  - component: {fileID: 1549241959}
   m_Layer: 0
   m_Name: LogController
   m_TagString: GameController
@@ -1041,6 +1042,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Log: {fileID: 5100777596940368992, guid: 42eee9b326330164aa4b576b7e3c3b10, type: 3}
+  gravityScale: 1
+  NextScene: mapMenu
 --- !u!114 &1549241958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1055,8 +1058,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 1681077456}
   timeBetween: 0.4
-  NextScene: mapMenu
   miniGameTime: 15
+--- !u!114 &1549241959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549241955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c9c5819d4d2d25449e73df1297b9d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniGameTime: 0
 --- !u!1 &1676815788
 GameObject:
   m_ObjectHideFlags: 0

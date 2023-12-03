@@ -15,9 +15,9 @@ public class pirateMovement : MonoBehaviour
 
     public void Start()
     {
-        timeRatio = 10.0f/controller.Starter.miniGameTime;
-        moveSpeed = timeRatio*moveSpeed;
-        growthRate = timeRatio*growthRate;
+        timeRatio = 10.0f / controller.getGameLength();
+        moveSpeed = timeRatio * moveSpeed;
+        growthRate = timeRatio * growthRate;
     }
 
     void Update()

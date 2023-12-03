@@ -1,29 +1,53 @@
 using UnityEngine;
 
-public class LogController : MonoBehaviour
+public class LogController : MonoBehaviour, IMiniGamesController
 {
     public GameObject Log;
     public float gravityScale = 1f;
+    public string NextScene;
 
     private GameObject CurrentLog;
     private GyroController phoneController;
     private bool CreateNewCrete;
-    private CountdownController Starter;
     private int LandedSafely = 0;
+    private float miniGameTime;
+    private bool isRunning = false;
+
+    //Interface functions
+    public int GetScore()
+    {
+        return LandedSafely * 24;
+
+    }
+    public void SetDuration(float time)
+    {
+        miniGameTime = time;
+        gravityScale = 10f / miniGameTime * gravityScale;
+
+    }
+
+    public void IsRunning(bool running)
+    {
+        isRunning = running;
+    }
+    public bool GameRunning()
+    {
+        return isRunning;
+    }
+
+    public string getNextScene()
+    {
+        return NextScene;
+    }
+    //Done with Interface Functions
 
     // Start is called before the first frame update
     void Start()
     {
         phoneController = gameObject.AddComponent<GyroController>();
-        Starter = gameObject.GetComponent<CountdownController>();
         phoneController.EnableGyro();
         CreateNewCrete = true;
-        gravityScale = (10f / Starter.miniGameTime) * gravityScale;
 
-    }
-    public int GetScore()
-    {
-        return LandedSafely * 24;
     }
 
     public void SafelyLandedCrate()
@@ -48,7 +72,7 @@ public class LogController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Starter.isRunning())
+        if (isRunning)
         {
             if (CreateNewCrete)
             {

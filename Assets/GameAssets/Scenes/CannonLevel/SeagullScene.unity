@@ -453,6 +453,7 @@ GameObject:
   - component: {fileID: 1758892525}
   - component: {fileID: 1758892527}
   - component: {fileID: 1758892528}
+  - component: {fileID: 1758892529}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -583,6 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af389e6b6d04de45a6251f9c92954da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextScene: mapMenu
   thresholds:
   - 0.01
   - 0.05
@@ -594,7 +596,6 @@ MonoBehaviour:
   - {fileID: 2013072600}
   - {fileID: 1978748497}
   seagullPrefab: {fileID: 5602906814611682394, guid: 57bbc323a0dbf5948afc6250f84ca779, type: 3}
-  Starter: {fileID: 1758892528}
 --- !u!114 &1758892528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,8 +610,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 1243074488}
   timeBetween: 0.4
-  NextScene: mapMenu
   miniGameTime: 10
+--- !u!114 &1758892529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758892522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c9c5819d4d2d25449e73df1297b9d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniGameTime: 0
 --- !u!1 &1965545675 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5105671724996920059, guid: 4b6fb60fd83163248bb770aeae4af0aa, type: 3}

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class DigController : MonoBehaviour
+public class DigController : MonoBehaviour, IMiniGamesController
 {
     public float fallThreshold = 0.5f;
     public float numOfThrustValue = 6f;
@@ -9,29 +9,52 @@ public class DigController : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public GameObject spot;
     public GameObject TreasurePrefab;
+    public string NextScene;
 
     private ThrustController thrushController;
     private CountdownController countdown;
     private float total = 0;
     private int holesDug = 0;
+    private float miniGameTime;
+    private bool isRunning = false;
 
-    void Start()
+    //Interface functions
+    public int GetScore()
     {
-        thrushController = gameObject.AddComponent<ThrustController>();
-        countdown = gameObject.GetComponent<CountdownController>();
-        float coolDownTime = (10f / countdown.miniGameTime) / 2;
+        return (int)(total * 10);
+
+    }
+    public void SetDuration(float time)
+    {
+        miniGameTime = time;
+        float coolDownTime = 10f / miniGameTime / 2;
         thrushController.setCoolDownTime(coolDownTime);
         animator.speed = 1 / coolDownTime * 0.138f;
     }
 
-    public int GetScore()
+    public void IsRunning(bool running)
     {
-        return (int)(total * 10);
+        isRunning = running;
     }
+    public bool GameRunning()
+    {
+        return isRunning;
+    }
+    public string getNextScene()
+    {
+        return NextScene;
+    }
+    //Done with Interface Functions
+    void Start()
+    {
+        thrushController = gameObject.AddComponent<ThrustController>();
+
+    }
+
 
     void Update()
     {
-        if (countdown.isRunning())
+        if (isRunning)
         {
             float thrushValue = thrushController.GetThrust(fallThreshold);
             if (thrushValue > 0)

@@ -664,6 +664,7 @@ GameObject:
   - component: {fileID: 1930502811}
   - component: {fileID: 1930502810}
   - component: {fileID: 1930502812}
+  - component: {fileID: 1930502813}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -685,7 +686,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 598922132}
   timeBetween: 0.4
-  NextScene: mapMenu
   miniGameTime: 10
 --- !u!4 &1930502811
 Transform:
@@ -717,7 +717,20 @@ MonoBehaviour:
   piratePrefab: {fileID: 8903100485805231080, guid: c2dc052f1ff07e540b59b58ebe8bfdc3, type: 3}
   playerSlicer: {fileID: 7060625892287351670, guid: 2864c4b7d7cb1134c962c233ec479577, type: 3}
   mover: {fileID: 5404040842078652027, guid: c2dc052f1ff07e540b59b58ebe8bfdc3, type: 3}
-  Starter: {fileID: 1930502810}
+  NextScene: mapMenu
+--- !u!114 &1930502813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930502809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c9c5819d4d2d25449e73df1297b9d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniGameTime: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

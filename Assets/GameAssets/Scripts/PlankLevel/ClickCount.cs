@@ -32,7 +32,7 @@ public class ClickCount : MonoBehaviour
     void Update()
     {
         // Check for mouse click in 2D
-        if (Starter.isRunning() && Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             // Convert mouse position to world point
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

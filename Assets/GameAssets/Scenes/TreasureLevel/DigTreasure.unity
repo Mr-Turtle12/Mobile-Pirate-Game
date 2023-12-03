@@ -132,8 +132,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 50089809}
-  - component: {fileID: 50089810}
   - component: {fileID: 50089811}
+  - component: {fileID: 50089810}
+  - component: {fileID: 50089812}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -174,6 +175,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1659914606}
   spot: {fileID: 1568587119}
   TreasurePrefab: {fileID: 5693241395386055377, guid: 160c5cb35dae8a749a344e0e6b7a87ab, type: 3}
+  NextScene: mapMenu
 --- !u!114 &50089811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,8 +190,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 1636868308}
   timeBetween: 0.4
-  NextScene: mapMenu
   miniGameTime: 10
+--- !u!114 &50089812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50089808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c9c5819d4d2d25449e73df1297b9d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniGameTime: 0
 --- !u!1 &1000992490
 GameObject:
   m_ObjectHideFlags: 0

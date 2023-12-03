@@ -2,34 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pirateController : MonoBehaviour
+public class pirateController : MonoBehaviour, IMiniGamesController
 {
     private int score = 0;
-    [SerializeField] private GameObject piratePrefab; 
+    [SerializeField] private GameObject piratePrefab;
     [SerializeField] private Slicer playerSlicer;
     [SerializeField] private pirateMovement mover;
+    public string NextScene;
     private float nextSpawnTime = 0f;
     private float spawnInterval = 1.8f;
-    public CountdownController Starter;
+    private float miniGameTime;
+    private bool isRunning = false;
 
-    public void Start()
-    {
-        spawnInterval = (spawnInterval/(10.0f/Starter.miniGameTime));
-    }
-
+    //Interface functions
     public int GetScore()
     {
         return score;
+
     }
+    public void SetDuration(float time)
+    {
+        miniGameTime = time;
+        spawnInterval /= (10.0f / miniGameTime);
+
+    }
+
+    public void IsRunning(bool running)
+    {
+        isRunning = running;
+    }
+    public bool GameRunning()
+    {
+        return isRunning;
+    }
+    public string getNextScene()
+    {
+        return NextScene;
+    }
+    //Done with Interface Functions
+
 
     public void IncreaseScore()
     {
         score += 40;
     }
+    public float getGameLength()
+    {
+        return miniGameTime;
+    }
 
     void Update()
     {
-        if (Starter.isRunning() && Time.time >= nextSpawnTime)
+        if (isRunning && Time.time >= nextSpawnTime)
         {
             SpawnPirate();
             nextSpawnTime = Time.time + spawnInterval;

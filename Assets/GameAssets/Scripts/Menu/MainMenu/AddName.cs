@@ -8,7 +8,7 @@ public class AddName : MonoBehaviour
 {
     public Button plus;
     public Button Play;
-    public DataCarrierScript dataCarrier;
+    private IDataCarrierScript dataCarrier;
     public GameObject[] players;
     public TextMeshProUGUI playerNameTextField;
     public List<string> playersName;
@@ -32,22 +32,21 @@ public class AddName : MonoBehaviour
     }
     void playGame()
     {
-        dataCarrier.SetPlayerList(playersName);
-        GameMode gameMode = dataCarrier.GetGameMode();
-        if (gameMode.Equals(GameMode.FreePlay))
+        GameObject dataCarrierObj = GameObject.Find("DataCarrier");
+        dataCarrier = dataCarrierObj.GetComponent<IDataCarrierScript>();
+        string nextScene = "";
+        switch (dataCarrier.GetGameMode())
         {
-            SceneManager.LoadScene("mapMenu");
-            Debug.Log("Load up main map");
-        }
-        else if (gameMode.Equals(GameMode.Endless))
-        {
-            //Load up a random mini game
-            Debug.Log("Load up a random miniGame");
-        }
-        else if (gameMode.Equals(GameMode.Vs))
-        {
-            //Load first game
-            Debug.Log("Load first miniGame");
+            case GameMode.Endless:
+                (dataCarrier as EndlessDataCarrier).AddPlayer(playersName);
+                nextScene = (dataCarrier as EndlessDataCarrier).StartEndlessGame();
+                SceneManager.LoadScene(nextScene);
+                break;
+            case GameMode.Vs:
+                (dataCarrier as VsDataCarrier).AddPlayer(playersName);
+                nextScene = (dataCarrier as VsDataCarrier).StartVsMode();
+                SceneManager.LoadScene(nextScene);
+                break;
         }
     }
     void AddPlayer()

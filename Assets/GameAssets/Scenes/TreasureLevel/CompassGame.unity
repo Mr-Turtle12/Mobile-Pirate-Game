@@ -798,6 +798,7 @@ GameObject:
   - component: {fileID: 1738471670}
   - component: {fileID: 1738471669}
   - component: {fileID: 1738471671}
+  - component: {fileID: 1738471672}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -821,6 +822,7 @@ MonoBehaviour:
   Compass_hand: {fileID: 722272496}
   newCompassAnimationPrefab: {fileID: 3611409435044303241, guid: 008d0ca797e0e63408342315f4958709, type: 3}
   background: {fileID: 1151294887}
+  NextScene: DigTreasure
 --- !u!4 &1738471670
 Transform:
   m_ObjectHideFlags: 0
@@ -850,8 +852,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 1504166578}
   timeBetween: 0.4
-  NextScene: DigTreasure
   miniGameTime: 10
+--- !u!114 &1738471672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738471668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c9c5819d4d2d25449e73df1297b9d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniGameTime: 0
 --- !u!1 &1961924540
 GameObject:
   m_ObjectHideFlags: 0
