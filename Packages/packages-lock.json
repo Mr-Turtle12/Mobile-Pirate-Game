@@ -95,14 +95,13 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.adaptiveperformance": {
-      "version": "4.0.1",
-      "depth": 1,
-      "source": "registry",
+      "version": "https://github.com/needle-mirror/com.unity.adaptiveperformance.git",
+      "depth": 0,
+      "source": "git",
       "dependencies": {
-        "com.unity.subsystemregistration": "1.1.0",
         "com.unity.profiling.core": "1.0.2"
       },
-      "url": "https://packages.unity.com"
+      "hash": "5fc82eed20bd8775a308188f73e3098a04bc04c1"
     },
     "com.unity.burst": {
       "version": "1.8.9",
@@ -212,18 +211,9 @@
     },
     "com.unity.profiling.core": {
       "version": "1.0.2",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.subsystemregistration": {
-      "version": "1.1.1",
-      "depth": 2,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.modules.subsystems": "1.0.0"
-      },
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {

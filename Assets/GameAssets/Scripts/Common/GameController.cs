@@ -6,7 +6,10 @@ public class GameController : MonoBehaviour
     private IDataCarrierScript CarrierScript;
     private CountdownController CountDownScript;
     private IMiniGamesController miniGamesController;
+
     public float miniGameTime;
+
+    public int progessScore = 120;
 
 
     // Start is called before the first frame update
@@ -34,7 +37,6 @@ public class GameController : MonoBehaviour
                 break;
         }
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -49,13 +51,13 @@ public class GameController : MonoBehaviour
         {
             case GameMode.Endless when CarrierScript is EndlessDataCarrier endlessCarrier:
                 //Endless mode can finish due to time limit/ if score reaching mini, you keep going otherwise you 
-                if (score < -10 && CountDownScript.TimerUp() && miniGamesController.GameRunning())
+                if (score < progessScore && CountDownScript.TimerUp() && miniGamesController.GameRunning())
                 {
                     CarrierScript.NextGame(score);
                     miniGamesController.IsRunning(false);
                     CountDownScript.lostGame(score);
                 }
-                if (score > -10 && CountDownScript.TimerUp() && miniGamesController.GameRunning())
+                if (score > progessScore && CountDownScript.TimerUp() && miniGamesController.GameRunning())
                 {
                     string NextScene = CarrierScript.NextGame(score);
                     miniGamesController.IsRunning(false);
@@ -74,7 +76,7 @@ public class GameController : MonoBehaviour
                 break;
 
             case GameMode.FreePlay:
-                if (score > 230 && miniGamesController.GameRunning())
+                if (score > progessScore && miniGamesController.GameRunning())
                 {
                     miniGamesController.IsRunning(false);
                     SceneManager.LoadScene(miniGamesController.getNextScene());

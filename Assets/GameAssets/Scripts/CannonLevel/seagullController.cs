@@ -24,8 +24,8 @@ public class seagullController : MonoBehaviour, IMiniGamesController
     public void SetDuration(float time)
     {
         miniGameTime = time;
-        timeRatio = 10.0f/Starter.miniGameTime;
-        flySpeed = Math.Max(timeRatio*flySpeed, flySpeed);
+        timeRatio = 10.0f / miniGameTime;
+        flySpeed = Math.Max(timeRatio * flySpeed, flySpeed);
     }
 
     public void IsRunning(bool running)

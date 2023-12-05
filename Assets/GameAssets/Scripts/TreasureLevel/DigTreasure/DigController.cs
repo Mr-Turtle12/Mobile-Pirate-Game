@@ -82,7 +82,7 @@ public class DigController : MonoBehaviour, IMiniGamesController
     {
         //Spawn treasure
         GameObject Animation = Instantiate(TreasurePrefab) as GameObject;
-        float animationSpeed = 5 / countdown.miniGameTime;
+        float animationSpeed = 5 / miniGameTime;
         Animation.GetComponent<Animator>().speed = animationSpeed;
         Destroy(Animation, animationSpeed);
 
