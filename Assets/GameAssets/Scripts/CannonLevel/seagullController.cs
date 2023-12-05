@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class seagullController : MonoBehaviour, IMiniGamesController
 {
@@ -10,6 +11,7 @@ public class seagullController : MonoBehaviour, IMiniGamesController
     [SerializeField] private seagullMovement[] Seagulls;
     [SerializeField] private GameObject seagullPrefab;
     private float flySpeed = 5.0f;
+    private float timeRatio;
     private Coroutine spawnCoroutine;
     private float miniGameTime;
     private bool isRunning = false;
@@ -22,7 +24,8 @@ public class seagullController : MonoBehaviour, IMiniGamesController
     public void SetDuration(float time)
     {
         miniGameTime = time;
-        flySpeed = ((10.0f / miniGameTime) * flySpeed);
+        timeRatio = 10.0f/Starter.miniGameTime;
+        flySpeed = Math.Max(timeRatio*flySpeed, flySpeed);
     }
 
     public void IsRunning(bool running)
