@@ -22,6 +22,8 @@ public class seagullController : MonoBehaviour, IMiniGamesController
     public void SetDuration(float time)
     {
         miniGameTime = time;
+        flySpeed = ((10.0f / miniGameTime) * flySpeed);
+        Debug.Log(flySpeed);
     }
 
     public void IsRunning(bool running)
@@ -41,8 +43,6 @@ public class seagullController : MonoBehaviour, IMiniGamesController
     private void Start()
     {
         voiceController = gameObject.AddComponent<VocalController>();
-        flySpeed = ((10.0f / miniGameTime) * flySpeed);
-        Debug.Log(flySpeed);
     }
     public void IncreaseScore()
     {
