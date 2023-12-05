@@ -23,7 +23,6 @@ public class seagullController : MonoBehaviour, IMiniGamesController
     {
         miniGameTime = time;
         flySpeed = ((10.0f / miniGameTime) * flySpeed);
-        Debug.Log(flySpeed);
     }
 
     public void IsRunning(bool running)
