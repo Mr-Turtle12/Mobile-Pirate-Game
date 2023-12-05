@@ -146,3 +146,4 @@ MonoBehaviour:
   trunkPrefab: {fileID: 2490184326391988737, guid: b106f331b066f2d4c987e2a8390ec951, type: 3}
   topPrefab: {fileID: 5243919296807519536, guid: 0cfe2d7f461c1274eb8b3ee6cd14b735, type: 3}
   axe: {fileID: 0}
+  controller: {fileID: 0}

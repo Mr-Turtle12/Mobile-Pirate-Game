@@ -7,6 +7,9 @@ TagManager:
   - Crate
   - Tree
   - Axe
+  - Trunk
+  - Background2
+  - Background1
   layers:
   - Default
   - TransparentFX
