@@ -27,7 +27,7 @@ public class pirateMovement : MonoBehaviour
 
     void Update()
     {
-        if (controller.Starter.isRunning())
+        if (controller.GameRunning())
         {
             if (!sliced)
             {
@@ -69,7 +69,7 @@ public class pirateMovement : MonoBehaviour
         Collider2D collider = GetComponent<Collider2D>();
         Destroy(collider);
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        Vector2 movementDirection = new Vector2(-moveSpeed, -moveSpeed); 
+        Vector2 movementDirection = new Vector2(-moveSpeed, -moveSpeed);
         rb.velocity = movementDirection;
     }
 }

@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class cameraController : MonoBehaviour
+public class cameraController : MonoBehaviour, IMiniGamesController
 {
     private int score = 0;
-    [SerializeField] private GameObject treePrefab; 
+    [SerializeField] private GameObject treePrefab;
     private Vector3 initialCameraPosition;
     private Vector3 initialAxePosition;
     private float timeRatio;
-    private float moveSpeed = 6.0f; 
-    private float rotationTime = 0.2f; 
+    private float moveSpeed = 6.0f;
+    private float rotationTime = 0.2f;
     private int clickCount = 0;
     private int counter = 1;
     private int switcher = 1;
@@ -22,20 +22,42 @@ public class cameraController : MonoBehaviour
     public CountdownController Starter;
     public treeMovement Tree;
     public Axe axe;
+    private float miniGameTime;
+    private bool isRunning;
+    public string NextScene;
+
+    //Interface functions
+    public int GetScore()
+    {
+        return score * 40;
+    }
+    public void SetDuration(float time)
+    {
+        miniGameTime = time;
+        timeRatio = 10.0f / miniGameTime;
+        moveSpeed = Math.Max(timeRatio * moveSpeed, moveSpeed);
+        rotationTime = Math.Min(rotationTime / timeRatio, rotationTime);
+    }
+
+    public void IsRunning(bool running)
+    {
+        isRunning = running;
+    }
+    public bool GameRunning()
+    {
+        return isRunning;
+    }
+    public string getNextScene()
+    {
+        return NextScene;
+    }
+    //Done with Interface Functions
 
     void Start()
     {
         mainCamera = Camera.main.gameObject;
-        timeRatio = 10.0f/Starter.miniGameTime;
-        moveSpeed = Math.Max(timeRatio*moveSpeed, moveSpeed);
-        rotationTime = Math.Min(rotationTime/timeRatio, rotationTime);
         initialCameraPosition = mainCamera.transform.position;
         initialAxePosition = axe.transform.position;
-    }
-
-    public int GetScore()
-    {
-        return score;
     }
 
     public void IncreaseScore()
@@ -44,7 +66,7 @@ public class cameraController : MonoBehaviour
     }
     void Update()
     {
-        if (Starter.isRunning() && Input.GetMouseButtonDown(0))
+        if (isRunning && Input.GetMouseButtonDown(0))
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
@@ -97,22 +119,22 @@ public class cameraController : MonoBehaviour
                 GameObject newBackground = GameObject.FindWithTag("Background1");
                 Vector3 backgroundPosition = background.transform.position;
                 newBackground.transform.position = new Vector3(backgroundPosition.x + 10.4f, backgroundPosition.y, backgroundPosition.z);
-            }   
+            }
         }
     }
-        
+
     private IEnumerator moveCoroutine(float moveSpeed)
     {
         float elapsedTime = 0.0f;
-     
+
         while (elapsedTime < 1f)
         {
             mainCamera.transform.position = Vector3.Lerp(initialCameraPosition, initialCameraPosition + Vector3.right * 5.0f, elapsedTime);
             axe.transform.position = Vector3.Lerp(initialAxePosition, initialAxePosition + Vector3.right * 5.0f, elapsedTime);
-            elapsedTime += Time.deltaTime * (moveSpeed/5);
+            elapsedTime += Time.deltaTime * (moveSpeed / 5);
             yield return null;
         }
-        
+
         initialCameraPosition = mainCamera.transform.position;
         initialAxePosition = axe.transform.position;
 

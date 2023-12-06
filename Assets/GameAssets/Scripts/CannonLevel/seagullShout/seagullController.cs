@@ -13,7 +13,6 @@ public class seagullController : MonoBehaviour, IMiniGamesController
     [SerializeField] private GameObject seagullPrefab;
     private float timeRatio;
     private float flySpeed = 5.0f;
-    private float timeRatio;
     private Coroutine spawnCoroutine;
     private float miniGameTime;
     private bool isRunning = false;

@@ -77,7 +77,7 @@ public class VsDataCarrier : MonoBehaviour, IDataCarrierScript
     void Start()
     {
         //Add all the Games in order
-        GameNames = new List<string>(new string[] { "CompassGame", "DigTreasure", "RopeScene", "LoadLogs", "EndScene" });
+        GameNames = new List<string>(new string[] { "SeagullScene", "CompassGame", "DigTreasure", "RopeScene", "TreeTap", "LoadLogs", "EndScene" });
 
     }
     void Awake()

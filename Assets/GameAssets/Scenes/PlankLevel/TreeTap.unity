@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 116180711}
   - component: {fileID: 116180712}
   - component: {fileID: 116180713}
+  - component: {fileID: 116180714}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -183,6 +184,7 @@ MonoBehaviour:
   Starter: {fileID: 116180713}
   Tree: {fileID: 37209492}
   axe: {fileID: 1368035481}
+  NextScene: 
 --- !u!114 &116180713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,8 +199,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 1575615808}
   timeBetween: 0.4
-  NextScene: LoadLogs
   miniGameTime: 10
+--- !u!114 &116180714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116180710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c9c5819d4d2d25449e73df1297b9d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniGameTime: 0
+  progessScore: 120
 --- !u!1 &238522511
 GameObject:
   m_ObjectHideFlags: 0
