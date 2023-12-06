@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class pirateController : MonoBehaviour, IMiniGamesController
@@ -70,7 +71,7 @@ public class pirateController : MonoBehaviour, IMiniGamesController
 
     Vector3 GetRandomSpawnPosition()
     {
-        float spawnX = Random.Range(-1f, 2.5f);
+        float spawnX = UnityEngine.Random.Range(-1f, 2.5f);
         float spawnY = 9f;
         return new Vector3(spawnX, spawnY, 0);
     }

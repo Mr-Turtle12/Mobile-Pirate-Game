@@ -6,12 +6,12 @@ public class pirateMovement : MonoBehaviour
 {
     [SerializeField] private Sprite pirateWin;
     [SerializeField] private Sprite pirateLose;
+    [SerializeField] public pirateController controller;
     private float timeRatio;
-    private float moveSpeed = 3.0f;
+    private float moveSpeed = 3.5f;
     private float growthRate = 0.05f;
     private bool sliced = false;
     public event Action OnHit;
-    public pirateController controller;
 
     public void Start()
     {
@@ -20,22 +20,29 @@ public class pirateMovement : MonoBehaviour
         growthRate = timeRatio * growthRate;
     }
 
-    void Update()
-    {
-        if (transform.position.y < -10)
-        {
-            Destroy(gameObject);
-        }
-
-        if (!sliced)
-        {
-            transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
-        }
-    }
-
     public void SetController(pirateController _controller)
     {
         controller = _controller;
+    }
+
+    void Update()
+    {
+        if (controller.Starter.isRunning())
+        {
+            if (!sliced)
+            {
+                transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
+            }
+
+            if (!sliced && transform.position.y < 1.5)
+            {
+                Win();
+            }
+            else if (transform.position.y < -10)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     public void Hit()
@@ -54,18 +61,15 @@ public class pirateMovement : MonoBehaviour
         Destroy(collider);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void Win()
     {
-        if (other.CompareTag("Ground"))
-        {
-            sliced = true;
-            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = pirateWin;
-            Collider2D collider = GetComponent<Collider2D>();
-            Destroy(collider);
-            Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            Vector2 movementDirection = new Vector2(-moveSpeed, -moveSpeed); // Adjust as needed
-            rb.velocity = movementDirection;
-        }
+        sliced = true;
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = pirateWin;
+        Collider2D collider = GetComponent<Collider2D>();
+        Destroy(collider);
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        Vector2 movementDirection = new Vector2(-moveSpeed, -moveSpeed); 
+        rb.velocity = movementDirection;
     }
 }

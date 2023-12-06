@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using System;
 
@@ -10,6 +11,7 @@ public class seagullController : MonoBehaviour, IMiniGamesController
     [SerializeField] private List<float> thresholds;
     [SerializeField] private seagullMovement[] Seagulls;
     [SerializeField] private GameObject seagullPrefab;
+    private float timeRatio;
     private float flySpeed = 5.0f;
     private float timeRatio;
     private Coroutine spawnCoroutine;
