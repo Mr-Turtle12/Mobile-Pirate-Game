@@ -10,7 +10,7 @@ public class AddName : MonoBehaviour
     public Button Play;
     private IDataCarrierScript dataCarrier;
     public GameObject[] players;
-    public TextMeshProUGUI playerNameTextField;
+    public TMP_InputField playerNameTextField;
     public List<string> playersName;
     // Start is called before the first frame update
     void Start()
@@ -59,7 +59,7 @@ public class AddName : MonoBehaviour
             string name = playerNameTextField.text;
             players[CurrentPlayerCount].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
             playersName.Add(name);
-
+            playerNameTextField.text = "";
         }
 
     }

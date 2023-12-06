@@ -50,7 +50,6 @@ public class GameController : MonoBehaviour
         }
 
         int score = miniGamesController.GetScore();
-        Debug.Log(displayScore[2]);
         if (score > 300 && !displayScore[2])
         {
             StartCoroutine(DisplayScore(2));
