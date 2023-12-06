@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,8 @@ public class GameController : MonoBehaviour
     private IMiniGamesController miniGamesController;
 
     public float miniGameTime;
+    public GameObject[] ScoreDisplays;
+    private bool[] displayScore = new bool[3] { false, false, false };
 
     public int progessScore = 120;
 
@@ -47,6 +50,20 @@ public class GameController : MonoBehaviour
         }
 
         int score = miniGamesController.GetScore();
+        Debug.Log(displayScore[2]);
+        if (score > 300 && !displayScore[2])
+        {
+            StartCoroutine(DisplayScore(2));
+        }
+        else if (score > 200 && !displayScore[1])
+        {
+            StartCoroutine(DisplayScore(1));
+
+        }
+        else if (score > 150 && !displayScore[0])
+        {
+            StartCoroutine(DisplayScore(0));
+        }
         switch (CarrierScript.GetGameMode())
         {
             case GameMode.Endless when CarrierScript is EndlessDataCarrier endlessCarrier:
@@ -61,7 +78,7 @@ public class GameController : MonoBehaviour
                 {
                     string NextScene = CarrierScript.NextGame(score);
                     miniGamesController.IsRunning(false);
-                    CountDownScript.endGame(NextScene, endlessCarrier.getCurrentPlayer());
+                    CountDownScript.endGame(NextScene, endlessCarrier.getCurrentPlayer(), score);
                 }
                 break;
 
@@ -71,7 +88,7 @@ public class GameController : MonoBehaviour
                     string NextScene = CarrierScript.NextGame(score);
 
                     miniGamesController.IsRunning(false);
-                    CountDownScript.endGame(NextScene, vsCarrier.getCurrentPlayer());
+                    CountDownScript.endGame(NextScene, vsCarrier.getCurrentPlayer(), score);
                 }
                 break;
 
@@ -83,5 +100,15 @@ public class GameController : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    IEnumerator DisplayScore(int index)
+    {
+        displayScore[index] = true;
+        ScoreDisplays[index].SetActive(true);
+        yield return new WaitForSeconds(1);
+        ScoreDisplays[index].SetActive(false);
+
+
     }
 }

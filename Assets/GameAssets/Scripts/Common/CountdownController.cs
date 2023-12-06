@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class CountdownController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class CountdownController : MonoBehaviour
     private Text Countdown;
     private Text Description;
     private Text PlayerName;
+    private Text ScoreText;
     private GameObject Icon;
     private CountdownState countdownState;
     private enum CountdownState
@@ -27,6 +29,7 @@ public class CountdownController : MonoBehaviour
         Countdown = UI.transform.Find("Countdown").GetComponent<Text>();
         Description = UI.transform.Find("Description").GetComponent<Text>();
         PlayerName = UI.transform.Find("PlayerName").GetComponent<Text>();
+        ScoreText = UI.transform.Find("Score").GetComponent<Text>();
         PlayerName.text = currentPlayer;
         Icon = UI.transform.Find("Icon").gameObject;
         timeBetween = (10f / miniGameTime) * timeBetween;
@@ -40,12 +43,13 @@ public class CountdownController : MonoBehaviour
     }
 
     //End Game to progess to the next minigame
-    public void endGame(string NextScene, string currentPlayer)
+    public void endGame(string NextScene, string currentPlayer, int score)
     {
         Countdown.text = "";
         Icon.SetActive(false);
         PlayerName.text = currentPlayer;
         Description.text = "Pass the Phone!";
+        ScoreText.text = "You got:" + score;
         UI.SetActive(true);
         StartCoroutine(EndCountdown(NextScene));
     }

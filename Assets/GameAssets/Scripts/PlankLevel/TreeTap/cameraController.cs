@@ -29,7 +29,7 @@ public class cameraController : MonoBehaviour, IMiniGamesController
     //Interface functions
     public int GetScore()
     {
-        return score * 40;
+        return score * 8;
     }
     public void SetDuration(float time)
     {
