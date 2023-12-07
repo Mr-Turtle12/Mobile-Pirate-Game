@@ -34,7 +34,7 @@ public class Axe : MonoBehaviour
             yield return null;
         }
 
-        float resetTime = rotationTime/4.0f;
+        float resetTime = rotationTime / 4.0f;
         float elapsedResetTime = 0f;
 
         while (elapsedResetTime < resetTime)

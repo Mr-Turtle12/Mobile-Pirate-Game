@@ -755,8 +755,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1930502811}
   - component: {fileID: 1930502810}
-  - component: {fileID: 1930502812}
   - component: {fileID: 1930502813}
+  - component: {fileID: 1930502814}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -794,22 +794,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1930502812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1930502809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc030bf7ccfd6834093e4a7dc229d710, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  piratePrefab: {fileID: 8903100485805231080, guid: c2dc052f1ff07e540b59b58ebe8bfdc3, type: 3}
-  playerSlicer: {fileID: 7060625892287351670, guid: 2864c4b7d7cb1134c962c233ec479577, type: 3}
-  mover: {fileID: 5404040842078652027, guid: c2dc052f1ff07e540b59b58ebe8bfdc3, type: 3}
-  NextScene: mapMenu
 --- !u!114 &1930502813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,6 +812,20 @@ MonoBehaviour:
   - {fileID: 685260096}
   - {fileID: 685260095}
   progessScore: 120
+--- !u!114 &1930502814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930502809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc030bf7ccfd6834093e4a7dc229d710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piratePrefab: {fileID: 8903100485805231080, guid: c2dc052f1ff07e540b59b58ebe8bfdc3, type: 3}
+  NextScene: CrewRally
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

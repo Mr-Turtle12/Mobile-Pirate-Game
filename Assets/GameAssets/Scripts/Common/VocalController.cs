@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using System.Threading;
 
 [RequireComponent(typeof(AudioSource))]
 
@@ -8,6 +9,7 @@ public class VocalController : MonoBehaviour
 {
     private AudioSource audioSource;
     private bool isListening = false;
+    private float waitTime = 0.25f;
 
     private void Start()
     {
@@ -17,10 +19,14 @@ public class VocalController : MonoBehaviour
         while (!(Microphone.GetPosition(null) > 0)) { }
         audioSource.Play();
     }
+    public void IncreaseWaitTime(float newTime)
+    {
+        waitTime = newTime;
+    }
 
     private IEnumerator Timer()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(waitTime);
         isListening = false;
     }
 
@@ -47,6 +53,10 @@ public class VocalController : MonoBehaviour
 
             isListening = true;
             StartCoroutine(Timer());
+        }
+        else
+        {
+            thresholdResults.Add(false);
         }
 
         return thresholdResults;
