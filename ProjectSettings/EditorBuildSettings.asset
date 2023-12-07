@@ -32,5 +32,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameAssets/Scenes/Menu/EndScene.unity
     guid: 5480eee5691ffd949b24bfd0c33fe94e
+  - enabled: 1
+    path: Assets/GameAssets/Scenes/WaterLevel/CrewRally.unity
+    guid: 158642ef3ed157b4b9e5b4c51ce68ad4
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 5606f15635f865045bce189738aad079, type: 2}

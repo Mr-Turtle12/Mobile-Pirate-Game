@@ -1,14 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using System;
 using UnityEngine;
 
 public class pirateController : MonoBehaviour, IMiniGamesController
 {
     private int score = 0;
     [SerializeField] private GameObject piratePrefab;
-    [SerializeField] private Slicer playerSlicer;
-    [SerializeField] private pirateMovement mover;
     public string NextScene;
     private float nextSpawnTime = 0f;
     private float spawnInterval = 1.8f;
