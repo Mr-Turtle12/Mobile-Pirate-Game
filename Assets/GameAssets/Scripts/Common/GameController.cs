@@ -37,6 +37,7 @@ public class GameController : MonoBehaviour
                 break;
             case GameMode.FreePlay:
                 CountDownScript.StartGame("");
+                CountDownScript.NoTimer();
                 break;
         }
     }

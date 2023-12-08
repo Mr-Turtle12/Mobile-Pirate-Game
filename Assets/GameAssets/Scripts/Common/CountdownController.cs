@@ -18,6 +18,7 @@ public class CountdownController : MonoBehaviour
     private Text ScoreText;
     private GameObject Icon;
     private CountdownState countdownState;
+    private bool RopeTimer = true;
     private enum CountdownState
     {
         NotStarted,
@@ -73,25 +74,32 @@ public class CountdownController : MonoBehaviour
     {
         return countdownState == CountdownState.TimeIsUp;
     }
+    public void NoTimer()
+    {
+        RopeTimer = false;
+    }
     public bool StartMiniGame()
     {
         return countdownState == CountdownState.GameRunning;
     }
     IEnumerator Timer()
     {
-        RopeTime.SetActive(true);
-
-        float elapsedTime = 0f;
-        float initialFillAmount = RopeTime.GetComponent<Image>().fillAmount;
-
-        while (elapsedTime < miniGameTime)
+        if (RopeTimer)
         {
-            elapsedTime += Time.deltaTime;
-            float newFillAmount = Mathf.Lerp(initialFillAmount, 0f, elapsedTime / miniGameTime);
-            RopeTime.GetComponent<Image>().fillAmount = newFillAmount;
-            yield return null;
+            RopeTime.SetActive(true);
+
+            float elapsedTime = 0f;
+            float initialFillAmount = RopeTime.GetComponent<Image>().fillAmount;
+
+            while (elapsedTime < miniGameTime)
+            {
+                elapsedTime += Time.deltaTime;
+                float newFillAmount = Mathf.Lerp(initialFillAmount, 0f, elapsedTime / miniGameTime);
+                RopeTime.GetComponent<Image>().fillAmount = newFillAmount;
+                yield return null;
+            }
+            countdownState = CountdownState.TimeIsUp;
         }
-        countdownState = CountdownState.TimeIsUp;
     }
 
 
