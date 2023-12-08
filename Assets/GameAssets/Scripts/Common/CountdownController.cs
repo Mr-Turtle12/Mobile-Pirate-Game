@@ -11,6 +11,8 @@ public class CountdownController : MonoBehaviour
     public float miniGameTime;
 
     private Text Countdown;
+    private GameObject CountdownComponent;
+    private GameObject RopeTime;
     private Text Description;
     private Text PlayerName;
     private Text ScoreText;
@@ -25,13 +27,18 @@ public class CountdownController : MonoBehaviour
 
     public void StartGame(string currentPlayer)
     {
+        //Find all the Objects for the countdown
+        CountdownComponent = UI.transform.Find("Countdown").gameObject;
+        RopeTime = UI.transform.Find("Rope").gameObject;
+        Countdown = CountdownComponent.transform.Find("Countdown").GetComponent<Text>();
+        Description = CountdownComponent.transform.Find("Description").GetComponent<Text>();
+        PlayerName = CountdownComponent.transform.Find("PlayerName").GetComponent<Text>();
+        ScoreText = CountdownComponent.transform.Find("Score").GetComponent<Text>();
+        Icon = CountdownComponent.transform.Find("Icon").gameObject;
+        RopeTime.SetActive(false);
+        UI.SetActive(true);
 
-        Countdown = UI.transform.Find("Countdown").GetComponent<Text>();
-        Description = UI.transform.Find("Description").GetComponent<Text>();
-        PlayerName = UI.transform.Find("PlayerName").GetComponent<Text>();
-        ScoreText = UI.transform.Find("Score").GetComponent<Text>();
         PlayerName.text = currentPlayer;
-        Icon = UI.transform.Find("Icon").gameObject;
         timeBetween = (10f / miniGameTime) * timeBetween;
         countdownState = CountdownState.NotStarted;
         StartCoroutine(StartCountdown());
@@ -50,7 +57,7 @@ public class CountdownController : MonoBehaviour
         PlayerName.text = currentPlayer;
         Description.text = "Pass the Phone!";
         ScoreText.text = "You got:" + score;
-        UI.SetActive(true);
+        CountdownComponent.SetActive(true);
         StartCoroutine(EndCountdown(NextScene));
     }
     //End Game due to losing all your lives, go back to menu
@@ -59,7 +66,7 @@ public class CountdownController : MonoBehaviour
         Countdown.text = "";
         Icon.SetActive(false);
         Description.text = "You Failed with a score of " + score;
-        UI.SetActive(true);
+        CountdownComponent.SetActive(true);
         StartCoroutine(WaitTime());
     }
     public bool TimerUp()
@@ -72,10 +79,22 @@ public class CountdownController : MonoBehaviour
     }
     IEnumerator Timer()
     {
-        Debug.Log(miniGameTime);
-        yield return new WaitForSeconds(miniGameTime);
+        RopeTime.SetActive(true);
+
+        float elapsedTime = 0f;
+        float initialFillAmount = RopeTime.GetComponent<Image>().fillAmount;
+
+        while (elapsedTime < miniGameTime)
+        {
+            elapsedTime += Time.deltaTime;
+            float newFillAmount = Mathf.Lerp(initialFillAmount, 0f, elapsedTime / miniGameTime);
+            RopeTime.GetComponent<Image>().fillAmount = newFillAmount;
+            yield return null;
+        }
         countdownState = CountdownState.TimeIsUp;
     }
+
+
     IEnumerator WaitTime()
     {
         yield return new WaitForSeconds(timeBetween);
@@ -83,7 +102,7 @@ public class CountdownController : MonoBehaviour
     }
     IEnumerator StartCountdown()
     {
-        UI.SetActive(true);
+        CountdownComponent.SetActive(true);
 
         SetCountdownText("3..");
         yield return new WaitForSeconds(timeBetween);
@@ -94,7 +113,7 @@ public class CountdownController : MonoBehaviour
         SetCountdownText("Go!");
         yield return new WaitForSeconds(timeBetween);
 
-        UI.SetActive(false);
+        CountdownComponent.SetActive(false);
         countdownState = CountdownState.GameRunning;
         StartCoroutine(Timer());
     }
