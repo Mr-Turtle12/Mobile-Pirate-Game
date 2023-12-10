@@ -31,6 +31,8 @@ public class ThrustController : MonoBehaviour
     {
         coolDownBool = true;
         yield return new WaitForSeconds(cooldownTime);
+        Debug.Log("Can swing again");
+
         coolDownBool = false;
     }
     public void setCoolDownTime(float newTime)
