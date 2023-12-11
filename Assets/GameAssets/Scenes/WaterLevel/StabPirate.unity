@@ -1317,7 +1317,7 @@ MonoBehaviour:
   animator: {fileID: 1332414414}
   PirateList: {fileID: 594397143}
   Splatter: {fileID: 661372511}
-  NextScene: mapMenu
+  NextScene: ambushAbyss
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
