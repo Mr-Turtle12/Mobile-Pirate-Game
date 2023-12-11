@@ -906,7 +906,7 @@ MonoBehaviour:
   Compass_hand: {fileID: 722272496}
   newCompassAnimationPrefab: {fileID: 3611409435044303241, guid: 008d0ca797e0e63408342315f4958709, type: 3}
   background: {fileID: 1151294887}
-  NextScene: DigTreasure
+  NextScene: opulentOasis
 --- !u!4 &1738471670
 Transform:
   m_ObjectHideFlags: 0

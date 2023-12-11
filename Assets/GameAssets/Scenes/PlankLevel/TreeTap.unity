@@ -184,7 +184,7 @@ MonoBehaviour:
   Starter: {fileID: 116180713}
   Tree: {fileID: 37209492}
   axe: {fileID: 4498867898118464954}
-  NextScene: LoadLogs
+  NextScene: canopyCove
 --- !u!114 &116180713
 MonoBehaviour:
   m_ObjectHideFlags: 0
