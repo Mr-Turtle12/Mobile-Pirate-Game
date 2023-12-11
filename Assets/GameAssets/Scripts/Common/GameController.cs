@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
         CountDownScript = GetComponent<CountdownController>();
         miniGamesController = GetComponent<IMiniGamesController>();
         //let all scripts know how long the game time should be
+        miniGamesController.StartminiGame();
         miniGameTime = CarrierScript.GetLength();
         CountDownScript.miniGameTime = miniGameTime;
         miniGamesController.SetDuration(miniGameTime);

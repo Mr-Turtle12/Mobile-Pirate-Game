@@ -35,5 +35,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameAssets/Scenes/WaterLevel/CrewRally.unity
     guid: 158642ef3ed157b4b9e5b4c51ce68ad4
+  - enabled: 1
+    path: Assets/GameAssets/Scenes/WaterLevel/StabPirate.unity
+    guid: 6a2b1587866cd1547a35c3f8fb9e0110
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 5606f15635f865045bce189738aad079, type: 2}

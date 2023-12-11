@@ -4,16 +4,22 @@ using UnityEngine.SceneManagement;
 public class StartMiniGames : MonoBehaviour
 {
     public ShipMovement Gets;
+    public Button back;
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Button>().onClick.AddListener(startGame);
+        back.onClick.AddListener(backButton);
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+    void backButton()
+    {
+        SceneManager.LoadScene("mainMenu");
     }
 
     void startGame()

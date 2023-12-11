@@ -38,15 +38,13 @@ public class CompassController : MonoBehaviour, IMiniGamesController
     {
         return NextScene;
     }
-    //Done with Interface Functions
-
-    // Start is called before the first frame update
-    void Start()
+    public void StartminiGame()
     {
         phoneController = gameObject.AddComponent<GyroController>();
         score = 0;
         phoneController.EnableGyro();
     }
+    //Done with Interface Functiom
     // Update is called once per frame
     void Update()
     {

@@ -40,12 +40,11 @@ public class CrewController : MonoBehaviour, IMiniGamesController
     {
         return NextScene;
     }
-    //Done with Interface Functions
-
-    private void Start()
+    public void StartminiGame()
     {
         voiceController = gameObject.AddComponent<VocalController>();
     }
+    //Done with Interface Functions
 
     public void IncreaseScore()
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StabController : MonoBehaviour
+public class StabController : MonoBehaviour, IMiniGamesController
 {
     public float fallThreshold = 0.5f;
     public Animator animator;
@@ -32,7 +32,6 @@ public class StabController : MonoBehaviour
     {
         miniGameTime = time;
         coolDownTime = 10f / miniGameTime / 2;
-        Debug.Log(coolDownTime);
         thrushController.setCoolDownTime(coolDownTime);
         animator.speed = 1 / coolDownTime * 0.217f;
     }
@@ -50,7 +49,7 @@ public class StabController : MonoBehaviour
         return NextScene;
     }
     //Done with Interface Functions
-    void Start()
+    public void StartminiGame()
     {
         thrushController = gameObject.AddComponent<ThrustController>();
         Splatter.SetActive(false);
@@ -68,7 +67,6 @@ public class StabController : MonoBehaviour
             if (thrushValue > 0)
             {
                 StartCoroutine(Blood());
-                Debug.Log("move");
                 total = total + thrushValue;
                 animator.SetTrigger("Move");
                 health--;
@@ -87,8 +85,8 @@ public class StabController : MonoBehaviour
     {
         resetting = true;
         Animator animator = CurrentPirates.GetComponent<Animator>();
-        animator.SetTrigger("Death");
         animator.speed = 1 / coolDownTime * 0.5f;
+        animator.SetTrigger("Death");
         yield return new WaitForSeconds(1 / coolDownTime * 0.5f);
 
         CurrentPirates.SetActive(false);

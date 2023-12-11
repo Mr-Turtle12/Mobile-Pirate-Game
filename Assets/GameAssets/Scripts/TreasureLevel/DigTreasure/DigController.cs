@@ -43,12 +43,11 @@ public class DigController : MonoBehaviour, IMiniGamesController
     {
         return NextScene;
     }
-    //Done with Interface Functions
-    void Start()
+    public void StartminiGame()
     {
         thrushController = gameObject.AddComponent<ThrustController>();
-
     }
+    //Done with Interface Functions
 
 
     void Update()
