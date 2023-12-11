@@ -179,6 +179,7 @@ MonoBehaviour:
   levels:
   - mapMenu
   - SeagullScene
+  - loadCannons
 --- !u!114 &26284480
 MonoBehaviour:
   m_ObjectHideFlags: 0
