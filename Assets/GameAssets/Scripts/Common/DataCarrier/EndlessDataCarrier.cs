@@ -13,7 +13,6 @@ public class EndlessDataCarrier : MonoBehaviour, IDataCarrierScript
     public float decreaseTimeBy = 0.1f;
 
 
-
     [SerializeField]
     private float gameLength = 10f;
 
