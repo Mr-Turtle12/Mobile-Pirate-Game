@@ -10,6 +10,7 @@ public enum GameMode
 {
     Vs,
     Endless,
-    FreePlay
+    FreePlay,
+    Campaign
 }
 

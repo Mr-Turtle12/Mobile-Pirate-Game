@@ -1,6 +1,7 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
-public class FreeplayDataCarrier : MonoBehaviour, IDataCarrierScript
+public class CampaignDataCarrier : MonoBehaviour, IDataCarrierScript
 {
 
     [SerializeField]
@@ -9,7 +10,7 @@ public class FreeplayDataCarrier : MonoBehaviour, IDataCarrierScript
     //Implement the IDataCarrier interface:
     public GameMode GetGameMode()
     {
-        return GameMode.FreePlay;
+        return GameMode.Campaign;
     }
     public string NextGame(int score)
     {
@@ -18,6 +19,14 @@ public class FreeplayDataCarrier : MonoBehaviour, IDataCarrierScript
     public float GetLength()
     {
         return gameLength;
+    }
+    public int getUnlockedMiniGames()
+    {
+        return PlayerPrefs.GetInt("unlockedMiniGame");
+    }
+    public void unlockMiniGame(int index)
+    {
+        PlayerPrefs.SetInt("unlockedMiniGame", index);
     }
     void Awake()
     {

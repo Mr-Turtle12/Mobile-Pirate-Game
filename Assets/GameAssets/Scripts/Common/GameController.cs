@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
             case GameMode.Vs when CarrierScript is VsDataCarrier vsCarrier:
                 CountDownScript.StartGame(vsCarrier.getCurrentPlayer());
                 break;
-            case GameMode.FreePlay:
+            case GameMode.FreePlay or GameMode.Campaign:
                 CountDownScript.StartGame("");
                 CountDownScript.NoTimer();
                 break;
@@ -97,6 +97,14 @@ public class GameController : MonoBehaviour
                 if (score > progessScore && miniGamesController.GameRunning())
                 {
                     miniGamesController.IsRunning(false);
+                    SceneManager.LoadScene(miniGamesController.getNextScene());
+                }
+                break;
+            case GameMode.Campaign when CarrierScript is CampaignDataCarrier campaignDataCarrier:
+                if (score > progessScore && miniGamesController.GameRunning())
+                {
+                    miniGamesController.IsRunning(false);
+                    campaignDataCarrier.unlockMiniGame(SceneManager.GetActiveScene().buildIndex);
                     SceneManager.LoadScene(miniGamesController.getNextScene());
                 }
                 break;
