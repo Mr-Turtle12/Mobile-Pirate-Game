@@ -571,7 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29db6dc520076a1478964110aae658ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextScene: StabPirate
+  NextScene: ambushAbyss
   thresholds:
   - 0.01
   - 0.05

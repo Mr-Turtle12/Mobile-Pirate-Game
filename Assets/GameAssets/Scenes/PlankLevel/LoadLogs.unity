@@ -1135,7 +1135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Log: {fileID: 5100777596940368992, guid: 42eee9b326330164aa4b576b7e3c3b10, type: 3}
   gravityScale: 1
-  NextScene: mapMenu
+  NextScene: canopyCove
 --- !u!114 &1549241958
 MonoBehaviour:
   m_ObjectHideFlags: 0

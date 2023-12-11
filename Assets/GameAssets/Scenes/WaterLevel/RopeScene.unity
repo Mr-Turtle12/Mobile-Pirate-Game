@@ -833,7 +833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   piratePrefab: {fileID: 8903100485805231080, guid: c2dc052f1ff07e540b59b58ebe8bfdc3, type: 3}
-  NextScene: CrewRally
+  NextScene: ambushAbyss
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -175,7 +175,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1659914606}
   spot: {fileID: 1568587119}
   TreasurePrefab: {fileID: 5693241395386055377, guid: 160c5cb35dae8a749a344e0e6b7a87ab, type: 3}
-  NextScene: mapMenu
+  NextScene: opulentOasis
 --- !u!114 &50089811
 MonoBehaviour:
   m_ObjectHideFlags: 0

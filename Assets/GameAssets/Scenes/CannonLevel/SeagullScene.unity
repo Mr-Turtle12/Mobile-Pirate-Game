@@ -599,7 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af389e6b6d04de45a6251f9c92954da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextScene: mapMenu
+  NextScene: powderkegPoint
   thresholds:
   - 0.01
   - 0.05
