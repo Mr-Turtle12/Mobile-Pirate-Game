@@ -179,8 +179,8 @@ MonoBehaviour:
   levels:
   - powderkegPoint
   - opulentOasis
-  - RopeScene
-  - TreeTap
+  - ambushAbyss
+  - canopyCove
 --- !u!114 &137689377
 MonoBehaviour:
   m_ObjectHideFlags: 0
