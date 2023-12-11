@@ -10,6 +10,11 @@ TagManager:
   - Trunk
   - Background2
   - Background1
+  - Seagull
+  - Ground
+  - Enemy
+  - Background
+  - Cannons
   layers:
   - Default
   - TransparentFX

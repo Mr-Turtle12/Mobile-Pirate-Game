@@ -6,10 +6,13 @@ public class ShipMovement : MonoBehaviour
 {
     public Transform[] objectLocations; // Array of allowed positions
     public GameObject[] GameIntro;
+    public int[] indexValues;
     private int currentLocationIndex = 0; // Initial position index
     public float moveSpeed = 5f; // Adjust this value to control the movement speed
     public float wobbleAmount = 0.1f; // Adjust this value to control the wobbling
     private bool isStationary = true;
+    private IDataCarrierScript CarrierScript;
+    private int maxIndex;
 
     public int GetCurrentLocationIndex()
     {
@@ -23,6 +26,25 @@ public class ShipMovement : MonoBehaviour
             Intro.SetActive(false);
         }
         GameIntro[currentLocationIndex].SetActive(true);
+        GameObject DataCarrier = GameObject.Find("DataCarrier");
+        CarrierScript = DataCarrier.GetComponent<IDataCarrierScript>();
+        switch (CarrierScript.GetGameMode())
+        {
+            case GameMode.FreePlay:
+                maxIndex = indexValues[objectLocations.Length - 1];
+                break;
+            case GameMode.Campaign when CarrierScript is CampaignDataCarrier campaignCarrier:
+                maxIndex = campaignCarrier.getUnlockedMiniGames();
+                break;
+        }
+
+        for (int i = 0; i < objectLocations.Length; i++)
+        {
+            if (indexValues[i] > maxIndex)
+            {
+                objectLocations[i].GetComponent<Renderer>().material.color = new Color(0f, 0f, 0f, 0.5f);
+            }
+        }
     }
 
     private void Update()
@@ -35,16 +57,17 @@ public class ShipMovement : MonoBehaviour
             {
                 return;
             }
-
-            isStationary = false;
-            GameIntro[currentLocationIndex].SetActive(false);
             // Check if the click is above or below the current position
             if (mousePosition.y > transform.position.y && currentLocationIndex > 0)
             {
+                isStationary = false;
+                GameIntro[currentLocationIndex].SetActive(false);
                 MoveToLocation(currentLocationIndex - 1);
             }
-            else if (mousePosition.y < transform.position.y && currentLocationIndex < objectLocations.Length - 1)
+            else if (mousePosition.y < transform.position.y && indexValues[currentLocationIndex] < maxIndex)
             {
+                isStationary = false;
+                GameIntro[currentLocationIndex].SetActive(false);
                 MoveToLocation(currentLocationIndex + 1);
             }
         }

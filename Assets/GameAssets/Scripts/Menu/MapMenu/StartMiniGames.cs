@@ -1,21 +1,36 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+
 public class StartMiniGames : MonoBehaviour
 {
     public ShipMovement Gets;
     public Button back;
-    // Start is called before the first frame update
+    public Text texts;
+    [SerializeField] private List<string> levels;
+
     void Start()
     {
+        if (back != null)
+        {
+            back.onClick.AddListener(backButton);
+        }
         GetComponent<Button>().onClick.AddListener(startGame);
-        back.onClick.AddListener(backButton);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (Gets.GetCurrentLocationIndex().Equals(0) && texts.text.Equals("Play"))
+        {
+            texts.text = "Back";
+        }
+        else if (!Gets.GetCurrentLocationIndex().Equals(0) && texts.text.Equals("Back"))
+        {
+            texts.text = "Play";
+        }
     }
     void backButton()
     {
@@ -26,23 +41,21 @@ public class StartMiniGames : MonoBehaviour
     {
         int gameIndex = Gets.GetCurrentLocationIndex();
         //Load Game withg Game index
-        Debug.Log("load game with id:" + gameIndex);
-        if (gameIndex.Equals(0))// Cannonball Island
+        if (gameIndex.Equals(0))
         {
-            SceneManager.LoadScene("SeagullScene");
-
+            SceneManager.LoadScene(levels[0]);
         }
-        else if (gameIndex.Equals(1)) //Treasure Island
+        else if (gameIndex.Equals(1))
         {
-            SceneManager.LoadScene("CompassGame");
+            SceneManager.LoadScene(levels[1]);
         }
-        else if (gameIndex.Equals(2)) //Water Invasion
+        else if (gameIndex.Equals(2))
         {
-            SceneManager.LoadScene("RopeScene");
+            SceneManager.LoadScene(levels[2]);
         }
-        else if (gameIndex.Equals(3)) //Wood Island
+        else if (gameIndex.Equals(3))
         {
-            SceneManager.LoadScene("TreeTap");
+            SceneManager.LoadScene(levels[3]);
         }
     }
 }
