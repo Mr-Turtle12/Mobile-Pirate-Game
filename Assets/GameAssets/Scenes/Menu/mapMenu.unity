@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gets: {fileID: 544493299}
   back: {fileID: 395657642}
+  texts: {fileID: 671557504}
   levels:
   - powderkegPoint
   - opulentOasis
@@ -660,7 +661,7 @@ MonoBehaviour:
   - {fileID: 1018694351}
   - {fileID: 2022907030}
   - {fileID: 1794976688}
-  indexValues: 00000000010000000300000006000000
+  indexValues: 00000000020000000400000007000000
   moveSpeed: 2
   wobbleAmount: 10
 --- !u!212 &544493300

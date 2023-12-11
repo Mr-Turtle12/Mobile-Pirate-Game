@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/GameAssets/Scenes/CannonLevel/SeagullScene.unity
     guid: 7cdf86a358b263740b799e922dd8e753
   - enabled: 1
+    path: Assets/GameAssets/Scenes/CannonLevel/loadCannons.unity
+    guid: f33e2b3651b93834594ddbdf114fa31d
+  - enabled: 1
     path: Assets/GameAssets/Scenes/TreasureLevel/CompassGame.unity
     guid: 263fa438b919e6c4dabcf37aca75eefc
   - enabled: 1
@@ -47,8 +50,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameAssets/Scenes/Menu/canopyCove.unity
     guid: b949b00a243454a47aae477132138bce
-  - enabled: 1
-    path: Assets/GameAssets/Scenes/CannonLevel/loadCannons.unity
-    guid: f33e2b3651b93834594ddbdf114fa31d
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 5606f15635f865045bce189738aad079, type: 2}
