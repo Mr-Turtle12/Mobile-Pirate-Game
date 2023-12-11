@@ -104,7 +104,7 @@ public class GameController : MonoBehaviour
                 if (score > progessScore && miniGamesController.GameRunning())
                 {
                     miniGamesController.IsRunning(false);
-                    campaignDataCarrier.unlockMiniGame(SceneManager.GetActiveScene().buildIndex);
+                    campaignDataCarrier.unlockMiniGame(SceneManager.GetActiveScene().buildIndex + 1);
                     SceneManager.LoadScene(miniGamesController.getNextScene());
                 }
                 break;

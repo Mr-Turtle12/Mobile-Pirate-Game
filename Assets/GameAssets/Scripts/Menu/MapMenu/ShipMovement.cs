@@ -57,18 +57,17 @@ public class ShipMovement : MonoBehaviour
             {
                 return;
             }
-
-            isStationary = false;
-            GameIntro[currentLocationIndex].SetActive(false);
-            Debug.Log(maxIndex);
-            Debug.Log(currentLocationIndex);
             // Check if the click is above or below the current position
             if (mousePosition.y > transform.position.y && currentLocationIndex > 0)
             {
+                isStationary = false;
+                GameIntro[currentLocationIndex].SetActive(false);
                 MoveToLocation(currentLocationIndex - 1);
             }
             else if (mousePosition.y < transform.position.y && indexValues[currentLocationIndex] < maxIndex)
             {
+                isStationary = false;
+                GameIntro[currentLocationIndex].SetActive(false);
                 MoveToLocation(currentLocationIndex + 1);
             }
         }
