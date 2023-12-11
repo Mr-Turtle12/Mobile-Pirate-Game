@@ -39,16 +39,14 @@ public class LogController : MonoBehaviour, IMiniGamesController
     {
         return NextScene;
     }
-    //Done with Interface Functions
-
-    // Start is called before the first frame update
-    void Start()
+    public void StartminiGame()
     {
         phoneController = gameObject.AddComponent<GyroController>();
         phoneController.EnableGyro();
         CreateNewCrete = true;
 
     }
+    //Interface done
 
     public void SafelyLandedCrate()
     {

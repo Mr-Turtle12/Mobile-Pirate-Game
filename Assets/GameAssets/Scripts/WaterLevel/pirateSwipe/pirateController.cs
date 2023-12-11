@@ -11,6 +11,11 @@ public class pirateController : MonoBehaviour, IMiniGamesController
     private bool isRunning = false;
 
     //Interface functions
+
+    public void StartminiGame()
+    {
+
+    }
     public int GetScore()
     {
         return score;

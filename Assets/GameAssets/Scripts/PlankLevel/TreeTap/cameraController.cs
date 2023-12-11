@@ -29,7 +29,7 @@ public class cameraController : MonoBehaviour, IMiniGamesController
     //Interface functions
     public int GetScore()
     {
-        return score * 8;
+        return score;
     }
     public void SetDuration(float time)
     {
@@ -51,14 +51,13 @@ public class cameraController : MonoBehaviour, IMiniGamesController
     {
         return NextScene;
     }
-    //Done with Interface Functions
-
-    void Start()
+    public void StartminiGame()
     {
         mainCamera = Camera.main.gameObject;
         initialCameraPosition = mainCamera.transform.position;
         initialAxePosition = axe.transform.position;
     }
+    //Interface function done
 
     public void IncreaseScore()
     {

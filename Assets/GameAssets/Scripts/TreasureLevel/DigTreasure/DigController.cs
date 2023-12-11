@@ -12,7 +12,6 @@ public class DigController : MonoBehaviour, IMiniGamesController
     public string NextScene;
 
     private ThrustController thrushController;
-    private CountdownController countdown;
     private float total = 0;
     private int holesDug = 0;
     private float miniGameTime;
@@ -44,12 +43,11 @@ public class DigController : MonoBehaviour, IMiniGamesController
     {
         return NextScene;
     }
-    //Done with Interface Functions
-    void Start()
+    public void StartminiGame()
     {
         thrushController = gameObject.AddComponent<ThrustController>();
-
     }
+    //Done with Interface Functions
 
 
     void Update()
