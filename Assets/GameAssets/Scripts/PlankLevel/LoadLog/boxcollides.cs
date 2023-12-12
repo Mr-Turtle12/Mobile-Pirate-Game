@@ -22,7 +22,7 @@ public class boxCollides : MonoBehaviour
             {
                 gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                 controller.SafelyLandedCrate();
-
+                Debug.Log("DEAN SUCKS BALLS");
             }
             else
             {

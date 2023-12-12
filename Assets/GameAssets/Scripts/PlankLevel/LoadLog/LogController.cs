@@ -5,7 +5,6 @@ public class LogController : MonoBehaviour, IMiniGamesController
     public GameObject Log;
     public float gravityScale = 1f;
     public string NextScene;
-
     private GameObject CurrentLog;
     private GyroController phoneController;
     private bool CreateNewCrete;
@@ -19,6 +18,7 @@ public class LogController : MonoBehaviour, IMiniGamesController
         return LandedSafely * 24;
 
     }
+
     public void SetDuration(float time)
     {
         miniGameTime = time;
@@ -30,6 +30,7 @@ public class LogController : MonoBehaviour, IMiniGamesController
     {
         isRunning = running;
     }
+
     public bool GameRunning()
     {
         return isRunning;
@@ -39,6 +40,7 @@ public class LogController : MonoBehaviour, IMiniGamesController
     {
         return NextScene;
     }
+
     public void StartminiGame()
     {
         phoneController = gameObject.AddComponent<GyroController>();
@@ -52,13 +54,13 @@ public class LogController : MonoBehaviour, IMiniGamesController
     {
         LandedSafely++;
         CreateNewCrete = true;
-
     }
+
     public void NotSafelyLandedCrate()
     {
         CreateNewCrete = true;
-
     }
+
     private void CreateCrate()
     {
         float[] numbers = { 1.56f, 0.02f, -1.62f };
@@ -79,8 +81,5 @@ public class LogController : MonoBehaviour, IMiniGamesController
             }
             CurrentLog.transform.eulerAngles = phoneController.AddGyro(CurrentLog.transform.eulerAngles, false, false, true);
         }
-
-
     }
-
 }
