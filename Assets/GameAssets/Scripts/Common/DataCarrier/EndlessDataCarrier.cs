@@ -88,7 +88,7 @@ public class EndlessDataCarrier : MonoBehaviour, IDataCarrierScript
     void Start()
     {
         //Add all the Games in order
-        GameNames = new List<string>(new string[] { "SeagullScene", "CompassGame", "DigTreasure", "RopeScene", "CrewRally", "StabPirate", "TreeTap", "LoadLogs" });
+        GameNames = new List<string>(new string[] { "SeagullScene", "LoadCannons", "CompassGame", "DigTreasure", "RopeScene", "CrewRally", "StabPirate", "TreeTap", "LoadLogs" });
     }
     void Awake()
     {
