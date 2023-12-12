@@ -62,13 +62,16 @@ public class CountdownController : MonoBehaviour
         StartCoroutine(EndCountdown(NextScene));
     }
     //End Game due to losing all your lives, go back to menu
-    public void lostGame(int score)
+
+
+    public IEnumerator CompleteLevel(string nextGame)
     {
         Countdown.text = "";
         Icon.SetActive(false);
-        Description.text = "You Failed with a score of " + score;
+        Description.text = "Well done you complete the level ";
         CountdownComponent.SetActive(true);
-        StartCoroutine(WaitTime());
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(nextGame);
     }
     public bool TimerUp()
     {
@@ -103,7 +106,7 @@ public class CountdownController : MonoBehaviour
     }
 
 
-    IEnumerator WaitTime()
+    IEnumerator WaitTime(int timeBetween)
     {
         yield return new WaitForSeconds(timeBetween);
         SceneManager.LoadScene("mainMenu");

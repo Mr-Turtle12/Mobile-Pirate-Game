@@ -98,7 +98,7 @@ public class GameController : MonoBehaviour
                 if (score > progessScore && miniGamesController.GameRunning())
                 {
                     miniGamesController.IsRunning(false);
-                    SceneManager.LoadScene(miniGamesController.getNextScene());
+                    StartCoroutine(CountDownScript.CompleteLevel(miniGamesController.getNextScene()));
                 }
                 break;
             case GameMode.Campaign when CarrierScript is CampaignDataCarrier campaignDataCarrier:
@@ -106,7 +106,7 @@ public class GameController : MonoBehaviour
                 {
                     miniGamesController.IsRunning(false);
                     campaignDataCarrier.unlockMiniGame(SceneManager.GetActiveScene().buildIndex + 1);
-                    SceneManager.LoadScene(miniGamesController.getNextScene());
+                    StartCoroutine(CountDownScript.CompleteLevel(miniGamesController.getNextScene()));
                 }
                 break;
         }
