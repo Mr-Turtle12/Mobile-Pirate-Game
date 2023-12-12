@@ -19,6 +19,7 @@ public class VocalController : MonoBehaviour
         while (!(Microphone.GetPosition(null) > 0)) { }
         audioSource.Play();
     }
+    
     public void IncreaseWaitTime(float newTime)
     {
         waitTime = newTime;
