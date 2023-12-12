@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/GameAssets/Scenes/Menu/mainMenu.unity
+    guid: 7470dc0e089f0ab489798a7daa7d1a50
+  - enabled: 1
     path: Assets/GameAssets/Scenes/CannonLevel/SeagullScene.unity
     guid: 7cdf86a358b263740b799e922dd8e753
   - enabled: 1
@@ -32,9 +35,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameAssets/Scenes/PlankLevel/TreeTap.unity
     guid: 68b76f7b0457cb64780abf2eea12d74e
-  - enabled: 1
-    path: Assets/GameAssets/Scenes/Menu/mainMenu.unity
-    guid: 7470dc0e089f0ab489798a7daa7d1a50
   - enabled: 1
     path: Assets/GameAssets/Scenes/Menu/mapMenu.unity
     guid: 4522722979fc3ae47bc9a1d397a74389
