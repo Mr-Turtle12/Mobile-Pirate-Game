@@ -73,7 +73,8 @@ public class GameController : MonoBehaviour
                 {
                     CarrierScript.NextGame(score);
                     miniGamesController.IsRunning(false);
-                    CountDownScript.lostGame(score);
+                    SceneManager.LoadScene("EndScene");
+
                 }
                 if (score > progessScore && CountDownScript.TimerUp() && miniGamesController.GameRunning())
                 {

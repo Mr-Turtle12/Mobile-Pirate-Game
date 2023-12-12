@@ -423,7 +423,7 @@ Transform:
   m_GameObject: {fileID: 395279915}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 0.0912, z: 0}
+  m_LocalPosition: {x: -0.01, y: 0.0912, z: -0.23}
   m_LocalScale: {x: 1.3861994, y: 1.5369987, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -536,7 +536,7 @@ RectTransform:
   m_GameObject: {fileID: 605260451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.6741, y: 5.6741, z: 5.6741}
+  m_LocalScale: {x: 8.281348, y: 8.281348, z: 8.281348}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 846427608}
@@ -544,7 +544,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -56.342926, y: -990.897}
+  m_AnchoredPosition: {x: 8, y: -977}
   m_SizeDelta: {x: 140.1403, y: 34.6185}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &605260453
@@ -656,14 +656,14 @@ RectTransform:
   m_GameObject: {fileID: 846427607}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.12075329, y: 0.12075329, z: 0.12075329}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 605260452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -5.6}
+  m_AnchoredPosition: {x: 0, y: -9}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &846427609
@@ -688,16 +688,16 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-    m_FontSize: 14
+    m_FontSize: 140
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 199
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Back to menu
 
