@@ -68,7 +68,7 @@ public class CountdownController : MonoBehaviour
     {
         Countdown.text = "";
         Icon.SetActive(false);
-        Description.text = "Well done you complete the level ";
+        Description.text = "Well done you have complete the level!!";
         CountdownComponent.SetActive(true);
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(nextGame);
