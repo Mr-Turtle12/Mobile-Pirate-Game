@@ -661,7 +661,7 @@ MonoBehaviour:
   - {fileID: 1018694351}
   - {fileID: 2022907030}
   - {fileID: 1794976688}
-  indexValues: 01000000030000000500000008000000
+  indexValues: 00000000030000000500000008000000
   moveSpeed: 2
   wobbleAmount: 10
 --- !u!212 &544493300
