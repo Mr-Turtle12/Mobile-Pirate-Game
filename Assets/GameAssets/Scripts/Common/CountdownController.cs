@@ -3,16 +3,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
+using System;
 
 public class CountdownController : MonoBehaviour
 {
     public GameObject UI;
     public float timeBetween = 0.5f;
+    public float moveSpeed = 18.3f;
+    public float timeRatio;
     public float miniGameTime;
-
+    private Vector3[] waypoints;
+    private int currentWaypoint = 0;
     private Text Countdown;
     private GameObject CountdownComponent;
     private GameObject RopeTime;
+    private GameObject Fuse;
     private Text Description;
     private Text PlayerName;
     private Text ScoreText;
@@ -26,11 +31,30 @@ public class CountdownController : MonoBehaviour
         TimeIsUp
     }
 
+    public void Start()
+    {
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+
+        timeRatio = 10.0f / miniGameTime;
+        moveSpeed = Math.Max(timeRatio * moveSpeed, moveSpeed);
+
+        waypoints = new Vector3[]
+        {
+            new Vector3(-23, 23, 0),
+            new Vector3(-23, -23, 0),
+            new Vector3(23, -23, 0),
+            new Vector3(23, 23, 0),
+            new Vector3(0, 23, 0),
+        };
+    }
+
     public void StartGame(string currentPlayer)
     {
         //Find all the Objects for the countdown
         CountdownComponent = UI.transform.Find("Countdown").gameObject;
         RopeTime = UI.transform.Find("Rope").gameObject;
+        Fuse = RopeTime.transform.Find("Fuse").gameObject;
         Countdown = CountdownComponent.transform.Find("Countdown").GetComponent<Text>();
         Description = CountdownComponent.transform.Find("Description").GetComponent<Text>();
         PlayerName = CountdownComponent.transform.Find("PlayerName").GetComponent<Text>();
@@ -82,6 +106,7 @@ public class CountdownController : MonoBehaviour
     {
         return countdownState == CountdownState.GameRunning;
     }
+
     IEnumerator Timer()
     {
         if (RopeTimer)
@@ -91,9 +116,21 @@ public class CountdownController : MonoBehaviour
             float elapsedTime = 0f;
             float initialFillAmount = RopeTime.GetComponent<Image>().fillAmount;
 
+            // Assuming Fuse is a GameObject with a RectTransform component
+            RectTransform fuseRectTransform = Fuse.GetComponent<RectTransform>();
+
             while (elapsedTime < miniGameTime)
             {
                 elapsedTime += Time.deltaTime;
+
+                fuseRectTransform.anchoredPosition = Vector2.MoveTowards(fuseRectTransform.anchoredPosition, waypoints[currentWaypoint], moveSpeed * Time.deltaTime);
+
+                if (Vector2.Distance(fuseRectTransform.anchoredPosition, waypoints[currentWaypoint]) < 0.1f)
+                {
+                    currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
+                    Debug.Log("Reached waypoint: " + currentWaypoint);
+                }
+
                 float newFillAmount = Mathf.Lerp(initialFillAmount, 0f, elapsedTime / miniGameTime);
                 RopeTime.GetComponent<Image>().fillAmount = newFillAmount;
                 yield return null;
